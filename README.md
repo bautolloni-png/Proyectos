@@ -50,6 +50,7 @@ El case study dice que corté `plantillas` porque se solapaba con `archivos`. La
 **CRM** GoHighLevel · Zoho · Bitrix24
 **Outbound y automatización** Clay · n8n · Apollo.io · Linked Helper · Sales Navigator
 **Analítica** Looker Studio · Power BI · GA4
+**Inteligencia artificial** Claude · Claude Code · Claude Cowork · ChatGPT (proyectos y skills) · Gemini · Perplexity
 
 ---
 
