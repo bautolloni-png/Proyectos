@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bautista Tolloni | Customer Success</title>
+<meta name="description" content="Dos casos de Customer Success de punta a punta: un bot de WhatsApp integrado con un CRM y Google Sheets, y un plan de 40 días para recuperar una cuenta SaaS antes de su renovación.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bautolloni-png.github.io/Proyectos/customer-success/">
+<meta property="og:title" content="Bautista Tolloni | Customer Success">
+<meta property="og:description" content="Un bot de WhatsApp con 10/10 en su Test Bed e integrado con un CRM, y el plan para recuperar una cuenta SaaS a 40 días de la renovación.">
+<meta property="og:image" content="https://bautolloni-png.github.io/Proyectos/customer-success/assets/kreditu-portada.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --bg:#FFFFFF; --surface-2:#F7F6FE; --surface-3:#EEEDFB; --surface-4:#E4E3F5;
+  --ink:#0F0E1A; --ink-2:#6B6880; --ink-3:#A09CB0;
+  --line:rgba(99,102,241,.13); --line-2:rgba(99,102,241,.30);
+  --accent:#6366F1; --accent-l:#818CF8; --accent-2:#4F46E5; --accent-ink:#4F46E5;
+  --accent-soft:rgba(99,102,241,.08); --accent-glow:rgba(99,102,241,.10);
+  --violet:#7C3AED; --pink:#EC4899; --amber:#F59E0B; --teal:#14B8A6;
+  --violet-d:#6D28D9; --pink-d:#DB2777; --amber-d:#B45309; --teal-d:#0F9488;
+  --ok:#059669; --ok-soft:#D1FAE5; --warn:#B45309; --warn-soft:#FEF3C7; --fail:#DC2626; --fail-soft:#FEE2E2;
+  --grad:linear-gradient(90deg,#7C3AED,#EC4899,#F59E0B,#14B8A6);
+  --grad-d:linear-gradient(130deg,#7C3AED 0%,#EC4899 50%,#F59E0B 100%);
+  --sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+  --mono:'SF Mono','Fira Code','Roboto Mono',Menlo,Monaco,Consolas,monospace;
+  --r-sm:12px; --r-md:16px; --rail:228px;
+  --c:#6366F1; --c-d:#4F46E5;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;top:-220px;right:-180px;width:820px;height:820px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle at 50% 50%, rgba(236,72,153,.10) 0%, rgba(124,58,237,.09) 38%, rgba(20,184,166,.05) 66%, rgba(255,255,255,0) 72%)}
+a{color:var(--accent-ink);text-decoration:none;border-bottom:1px solid rgba(99,102,241,.28)}
+a:hover{color:var(--accent-2);border-bottom-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+code{font-family:var(--mono)}
+.grad-text{background:var(--grad-d);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.eyebrow{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--c-d);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.eyebrow::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--c);flex-shrink:0}
+.eyebrow::after{content:"";flex-grow:1;height:1px;background:var(--line)}
+.h2{font-size:clamp(30px,4.6vw,46px);font-weight:700;line-height:1.06;letter-spacing:-.035em;margin-bottom:12px}
+.h3{font-size:19px;font-weight:600;letter-spacing:-.025em;margin:40px 0 4px}
+.sub{font-size:13.5px;color:var(--ink-2);max-width:62ch}
+.lede{color:var(--ink-2);font-size:15.5px;max-width:64ch}
+.foot{margin-top:22px;font-size:12px;color:var(--ink-3);line-height:1.55;max-width:70ch}
+.foot code{font-size:11px;background:var(--surface-3);padding:1px 4px;border-radius:4px;color:var(--ink-2)}
+
+/* rail */
+.rail{position:fixed;inset:0 auto 0 0;width:var(--rail);background:var(--bg);border-right:1px solid var(--line);padding:26px 20px;display:flex;flex-direction:column;gap:24px;z-index:30;overflow-y:auto}
+.rail::after{content:"";position:absolute;top:0;right:0;width:3px;height:100%;background:var(--grad);opacity:.55}
+.rail-name{font-size:21px;font-weight:700;letter-spacing:-.035em;line-height:1.05}
+.rail-name b{background:var(--grad-d);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.rail-role{font-size:11px;color:var(--ink-3);line-height:1.4;margin-top:5px}
+.rail-nav{display:flex;flex-direction:column;padding-left:13px;border-left:2px solid var(--surface-4)}
+.rail-nav a{display:flex;align-items:baseline;gap:9px;padding:5px 10px;border-radius:9px;font-size:12.5px;color:var(--ink-2);border:none;transition:.16s}
+.rail-nav a:hover{color:var(--ink);background:var(--surface-2)}
+.rail-nav a.on{color:var(--accent-2);background:var(--accent-soft);font-weight:600}
+.rail-nav .n{font-family:var(--mono);font-size:9px;color:var(--ink-3);flex-shrink:0}
+.rail-foot{margin-top:auto;display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:10.5px}
+.rail-foot a{color:var(--ink-3);border:none}
+.rail-foot a:hover{color:var(--accent-ink)}
+.wrap{margin-left:var(--rail);padding:0 clamp(18px,4vw,60px) 90px;position:relative;z-index:1}
+.inner{max-width:900px;margin:0 auto}
+section{padding:60px 0;border-top:1px solid var(--line)}
+
+/* hero */
+.hero{padding:70px 0 56px;border:none}
+.hero-kicker{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.hero h1{font-size:clamp(52px,9.5vw,108px);font-weight:700;line-height:.92;letter-spacing:-.05em;margin-bottom:22px}
+.hero h1 em{font-style:normal;font-weight:600;color:var(--ink-2);font-size:.2em;letter-spacing:-.015em;display:block;margin-top:20px;line-height:1.3}
+.hero-lede{font-size:17.5px;color:var(--ink-2);max-width:58ch;margin-bottom:28px}
+.hero-links{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:38px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line-2);background:var(--bg);font-size:13px;font-weight:500;color:var(--ink);transition:.18s}
+.chip:hover{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-2);transform:translateY(-1px)}
+.chip.primary{background:var(--grad-d);color:#fff;border-color:transparent}
+.chip.primary:hover{color:#fff;box-shadow:0 6px 18px rgba(124,58,237,.30)}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.fig{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:17px 19px;border-top:3px solid var(--fc,var(--accent))}
+.fig .v{font-size:34px;font-weight:700;line-height:1;letter-spacing:-.045em;font-variant-numeric:tabular-nums;color:var(--fc,var(--accent))}
+.fig .k{font-size:11.5px;color:var(--ink-3);margin-top:7px;line-height:1.35}
+
+/* perfil */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:26px}
+.job{padding:14px 0;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:none}
+.job-when{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.05em}
+.job-title{font-size:16px;font-weight:600;letter-spacing:-.02em;margin-top:3px}
+.job-org{font-size:13px;color:var(--ink-2);margin-top:3px;line-height:1.5}
+.mini-h{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+
+/* flujo */
+.flow{margin-top:24px;border:1px solid var(--line);border-radius:var(--r-md);padding:22px;background:linear-gradient(150deg,#FAF5FF 0%,#FDF2F8 100%)}
+.node{background:#fff;border:1px solid var(--line-2);border-radius:11px;padding:10px 13px;font-size:12.5px;line-height:1.35}
+.node b{display:block;font-size:13px;font-weight:600;letter-spacing:-.01em}
+.node span{color:var(--ink-3);font-size:11.5px}
+.node.top{max-width:320px;margin:0 auto;text-align:center}
+.node.int{border-color:var(--teal);background:#F0FDFA}
+.node.end{border-color:var(--ok);background:var(--ok-soft)}
+.arrow{text-align:center;color:var(--ink-3);font-size:14px;line-height:1;padding:5px 0}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:4px}
+.lane{display:flex;flex-direction:column}
+.lane-h{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-align:center;margin-bottom:8px}
+.lane.v .lane-h{color:var(--violet-d)} .lane.t .lane-h{color:var(--teal-d)}
+.jump{margin-top:14px;text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--pink-d);border:1px dashed var(--pink);border-radius:999px;padding:6px 12px;background:#fff}
+
+/* tarjetas */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.case{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:19px 21px;display:flex;flex-direction:column;gap:9px;border-top:3px solid var(--cc,var(--accent));transition:.18s}
+.case:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,.09)}
+.case-n{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;color:var(--cc,var(--accent))}
+.case h4{font-size:16.5px;font-weight:600;letter-spacing:-.02em}
+.case p{font-size:13px;color:var(--ink-2);line-height:1.5}
+
+/* capturas y videos */
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:20px;align-items:start}
+.shot{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--bg);margin:0}
+.shot img{width:100%}
+.shot-cap{font-size:11.5px;color:var(--ink-3);padding:11px 14px;border-top:1px solid var(--line);background:var(--surface-2);line-height:1.45}
+.shot.wide{grid-column:1/-1}
+.shots.pair{grid-template-columns:minmax(0,340px) minmax(0,1fr)}
+@media (max-width:760px){.shots.pair{grid-template-columns:1fr}}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:20px}
+.vid{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--bg)}
+.vid .frame{position:relative;padding-top:62.5%;background:var(--surface-3)}
+.vid iframe,.vid video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid-cap{padding:12px 14px;border-top:1px solid var(--line)}
+.vid-cap b{font-size:13.5px;font-weight:600;display:block}
+.vid-cap span{font-size:12px;color:var(--ink-3)}
+.vid.big .frame{padding-top:62.8%}
+
+/* archivos */
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:9px;margin-top:20px}
+.file{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--bg);color:var(--ink);transition:.16s}
+.file:hover{border-color:var(--c);background:color-mix(in srgb,var(--c) 5%,#fff);color:var(--ink)}
+.file .ext{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:5px 7px;border-radius:6px;background:var(--surface-3);color:var(--c-d);flex-shrink:0;min-width:44px;text-align:center}
+.file b{display:block;font-size:13px;font-weight:600}
+.file span{font-size:11.5px;color:var(--ink-3)}
+
+/* kreditu */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.kgroup{border:1px solid var(--line);border-radius:var(--r-md);padding:15px 16px;background:var(--bg)}
+.kgroup h4{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c-d);margin-bottom:10px}
+.kpi{padding:7px 0;border-top:1px solid var(--line)}
+.kpi:first-of-type{border-top:none}
+.kpi .v{font-size:24px;font-weight:700;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi .k{font-size:11.5px;color:var(--ink-3)}
+.kpi.bad .v{color:var(--fail)}
+.result{margin-top:10px;border-radius:var(--r-md);padding:16px 20px;background:#0F0E1A;color:#fff;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline}
+.result .l{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.result .t{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.rows{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 16px}
+.row-c{font-size:13.5px;font-weight:500}
+.pill{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;padding:5px 11px;border-radius:999px;white-space:nowrap;color:#fff;background:var(--pc)}
+.fronts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:20px}
+.front{border:1px solid var(--line);border-radius:var(--r-md);padding:18px 20px;background:var(--bg);border-top:3px solid var(--pc);display:flex;flex-direction:column;gap:9px}
+.front .when{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--pc)}
+.front h4{font-size:17px;font-weight:600;letter-spacing:-.02em}
+.front ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.front li{font-size:13px;color:var(--ink-2);line-height:1.45}
+.front .del{margin-top:auto;font-size:12px;color:var(--ink);background:var(--surface-2);border-radius:9px;padding:9px 11px;line-height:1.4}
+.front .del b{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--pc);display:block;margin-bottom:2px}
+.path{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:4px}
+.path span{font-size:11.5px;padding:4px 9px;border-radius:7px;background:var(--surface-3);color:var(--ink-2)}
+.path span.x{background:var(--fail-soft);color:var(--fail);text-decoration:line-through}
+.path span.ok{background:var(--ok-soft);color:var(--ok);font-weight:600}
+.path i{font-style:normal;color:var(--ink-3);font-size:11px}
+table.m{width:100%;border-collapse:collapse;margin-top:18px;font-size:13px}
+table.m th{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line-2)}
+table.m td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.m td.d{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--c-d);white-space:nowrap}
+table.m td.now{color:var(--ink-3)}
+table.m td.goal{color:var(--ok);font-weight:600}
+
+/* pilares */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:26px}
+.pillar{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;display:flex;flex-direction:column;gap:9px;transition:.18s}
+.pillar:hover{border-color:var(--line-2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,.09)}
+.pillar .dot{width:26px;height:4px;border-radius:3px;background:var(--pc)}
+.pillar h3{font-size:16.5px;font-weight:600;letter-spacing:-.02em}
+.pillar p{font-size:13px;color:var(--ink-2);line-height:1.5}
+
+/* cta */
+.cta{background:var(--grad-d);color:#fff;border-radius:24px;padding:40px;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end;margin-top:8px}
+.cta h2{font-size:clamp(34px,5vw,50px);font-weight:700;line-height:.98;letter-spacing:-.045em;color:#fff}
+.cta p{font-size:14.5px;color:rgba(255,255,255,.85);margin-top:13px;max-width:44ch}
+.cta-links{display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:12.5px}
+.cta-links a{color:#fff;border-bottom-color:rgba(255,255,255,.4)}
+.cta-links a:hover{color:#fff;border-bottom-color:#fff}
+
+@media (max-width:900px){
+  :root{--rail:0px}
+  .rail{position:sticky;inset:0 0 auto 0;width:auto;flex-direction:row;align-items:center;gap:16px;padding:11px 16px;border-right:none;border-bottom:1px solid var(--line);overflow-x:auto;background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+  .rail::after{top:auto;bottom:0;right:auto;left:0;width:100%;height:3px}
+  .rail-id{flex-shrink:0}.rail-role{display:none}.rail-name{font-size:17px;white-space:nowrap}.rail-name br{display:none}
+  .rail-nav{flex-direction:row;gap:3px;flex-shrink:0;padding-left:0;border-left:none}
+  .rail-nav a{white-space:nowrap;padding:5px 11px}
+  .rail-nav .n,.rail-foot{display:none}
+  .wrap{margin-left:0}
+  .cta{padding:28px}
+  body::before{width:520px;height:520px;right:-220px}
+}
+@media (max-width:640px){
+  .cases{grid-template-columns:1fr}
+  .shot.narrow{max-width:none}
+  .lanes{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  table.m td.d{white-space:normal}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="rail" aria-label="Secciones">
+  <div class="rail-id">
+    <div class="rail-name">Bautista<br><b>Tolloni.</b></div>
+    <div class="rail-role">Customer Success Manager</div>
+  </div>
+  <div class="rail-nav" id="nav">
+    <a href="#perfil"><span class="n">01</span>Perfil</a>
+    <a href="#motortech"><span class="n">02</span>Caso MotorTech</a>
+    <a href="#kreditu"><span class="n">03</span>Caso Kreditu</a>
+    <a href="#como-trabajo"><span class="n">04</span>Cómo trabajo</a>
+    <a href="#contacto"><span class="n">05</span>Contacto</a>
+  </div>
+  <div class="rail-foot">
+    <a href="../">Portfolio CRM &amp; Lifecycle ↗</a>
+    <a href="https://www.linkedin.com/in/bautistatolloni" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="mailto:bautolloni@gmail.com">bautolloni@gmail.com</a>
+  </div>
+</nav>
+
+<div class="wrap"><div class="inner">
+
+<header class="hero">
+  <div class="hero-kicker">Customer Success · Implementación · Adopción</div>
+  <h1>Bautista<br><span class="grad-text">Tolloni.</span><em>Customer Success Manager</em></h1>
+  <p class="hero-lede">Dos casos completos. En el primero construí, probé e integré un bot de WhatsApp con un CRM y con Google Sheets. En el segundo armé el plan para recuperar una cuenta SaaS en riesgo, a 40 días de su renovación. Los dos fueron los desafíos técnicos de un proceso de selección para Customer Success Manager en ATOM, una plataforma de comercio conversacional por WhatsApp.</p>
+  <div class="hero-links">
+    <a class="chip primary" href="#motortech">Caso MotorTech</a>
+    <a class="chip primary" href="#kreditu">Caso Kreditu</a>
+    <a class="chip" href="https://www.linkedin.com/in/bautistatolloni" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="chip" href="mailto:bautolloni@gmail.com">bautolloni@gmail.com</a>
+  </div>
+  <div class="figs">
+    <div class="fig" style="--fc:var(--violet)"><div class="v">10/10</div><div class="k">respuestas correctas en el Test Bed del bot (meta: 90%)</div></div>
+    <div class="fig" style="--fc:var(--pink)"><div class="v">4</div><div class="k">integraciones HTTP con CRM y Google Sheets, con manejo de errores</div></div>
+    <div class="fig" style="--fc:var(--amber)"><div class="v">5 → 3</div><div class="k">causas raíz convertidas en tres frentes de trabajo</div></div>
+    <div class="fig" style="--fc:var(--teal)"><div class="v">40 días</div><div class="k">de plan, con un entregable concreto en cada etapa</div></div>
+  </div>
+</header>
+
+<!-- ============ PERFIL ============ -->
+<section id="perfil" style="--c:#6366F1;--c-d:#4F46E5">
+  <div class="eyebrow">01 · Perfil</div>
+  <h2 class="h2">Del CRM al éxito del cliente</h2>
+  <p class="lede">Hace más de tres años que trabajo del lado del cliente: primero en atención al cliente de una fintech y después implementando CRM y automatizaciones para más de ocho cuentas B2B en paralelo. En los dos casos el trabajo termina en lo mismo que mide un CSM: que el cliente use la herramienta y vea el resultado.</p>
+  <div class="two">
+    <div>
+      <div class="mini-h">Experiencia</div>
+      <div class="job"><div class="job-when">2024 – 2026 · Remoto</div><div class="job-title">CRM &amp; Marketing Automation, Email &amp; Lifecycle Specialist</div><div class="job-org">Ranking Online, agencia de marketing digital de Barcelona. Implementación de CRM y automatizaciones para más de ocho cuentas B2B en paralelo.</div></div>
+      <div class="job"><div class="job-when">2023 – 2024 · Córdoba</div><div class="job-title">Analista de Customer Service (CRM)</div><div class="job-org">TACA TACA, fintech. Atención y seguimiento de clientes sobre Microsoft Dynamics 365.</div></div>
+    </div>
+    <div>
+      <div class="mini-h">Lo que aplico en Customer Success</div>
+      <div class="job"><div class="job-title">Implementación y onboarding</div><div class="job-org">Configurar la herramienta para el caso de uso real del cliente, no para una demo.</div></div>
+      <div class="job"><div class="job-title">Adopción y métricas</div><div class="job-org">Definir qué se mide, con qué línea base y en qué plazo.</div></div>
+      <div class="job"><div class="job-title">Integraciones</div><div class="job-org">APIs, webhooks, n8n y Google Apps Script para conectar la herramienta con la operación.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOTORTECH ============ -->
+<section id="motortech" style="--c:#7C3AED;--c-d:#6D28D9">
+  <div class="eyebrow">02 · Caso MotorTech</div>
+  <h2 class="h2">Un bot de WhatsApp que vende, agenda y no inventa</h2>
+  <p class="lede">MotorTech es un concesionario oficial Toyota en Colombia. El desafío: construir en ATOM Flow Builder un bot que identifique si el cliente quiere comprar o necesita el taller, responda consultas de ventas solo con la información oficial, registre los leads de cotización y test drive en un CRM mediante su API, y agende las citas de taller en Google Sheets.</p>
+
+  <h3 class="h3">Cómo quedó el flujo</h3>
+  <p class="sub">Cuatro Smartons (agentes de IA de ATOM), cuatro peticiones HTTP y tres condicionales. Cada rama tiene su mensaje de error para que la conversación nunca quede sin respuesta.</p>
+  <div class="flow" role="img" aria-label="Diagrama del flujo del bot">
+    <div class="node top"><b>Clasificador de intención</b><span>Smarton #1 · deriva a Ventas o a Taller</span></div>
+    <div class="lanes">
+      <div class="lane v">
+        <div class="arrow">↓</div>
+        <div class="lane-h">Ventas</div>
+        <div class="node"><b>Asesor de ventas</b><span>Smarton #2 · base de conocimiento con 10 modelos</span></div>
+        <div class="arrow">↓ pide cotización o test drive</div>
+        <div class="node"><b>Captura del lead</b><span>Smarton #3 · 7 datos validados</span></div>
+        <div class="arrow">↓</div>
+        <div class="node int"><b>CRM: token → búsqueda por correo</b><span>Petición HTTP #1 y #2</span></div>
+        <div class="arrow">↓ ¿existe el contacto?</div>
+        <div class="node int"><b>Usa su ID o lo crea</b><span>Condicional #1 · Petición HTTP #3 · Condicional #2</span></div>
+        <div class="arrow">↓</div>
+        <div class="node end"><b>Confirmación con número de referencia</b></div>
+      </div>
+      <div class="lane t">
+        <div class="arrow">↓</div>
+        <div class="lane-h">Taller</div>
+        <div class="node"><b>Agendamiento</b><span>Smarton #4 · nombre, placa, motivo, fecha y hora</span></div>
+        <div class="arrow">↓</div>
+        <div class="node int"><b>Google Sheets</b><span>Petición HTTP #4 a un Apps Script propio</span></div>
+        <div class="arrow">↓ ¿se registró?</div>
+        <div class="node int"><b>Validación del status</b><span>Condicional #3</span></div>
+        <div class="arrow">↓</div>
+        <div class="node end"><b>Confirmación de la cita</b></div>
+        <div class="jump">Si en Ventas menciona una falla de su vehículo, salta a Taller sin empezar de nuevo</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="h3">Las decisiones que importaron</h3>
+  <div class="cases">
+    <div class="case" style="--cc:var(--violet)"><div class="case-n">DERIVACIÓN</div><h4>Las reglas van en las intenciones, no en el prompt</h4><p>ATOM evalúa las intenciones de salida antes de que el Smarton responda. Por eso definí ahí qué cuenta como pedido de cotización y qué como falla del vehículo, con ejemplos de lo que aplica y de lo que no.</p></div>
+    <div class="case" style="--cc:var(--pink)"><div class="case-n">INTEGRACIÓN</div><h4>Un código 200 no significa éxito</h4><p>La API del CRM respondía 200 incluso cuando fallaba, con el error dentro del cuerpo. Guardé el campo status en variables y agregué condicionales que deciden según ese valor.</p></div>
+    <div class="case" style="--cc:var(--amber)"><div class="case-n">CALIDAD</div><h4>Cada cambio, contra las diez preguntas</h4><p>Ajusté el prompt de ventas en cuatro iteraciones. Después de cada una volví a correr el Test Bed completo para confirmar que lo corregido no rompiera otra respuesta.</p></div>
+    <div class="case" style="--cc:var(--teal)"><div class="case-n">CONFIANZA</div><h4>Decir lo que se sabe y aclarar lo que no</h4><p>Si la información oficial describe un dato sin cifra, como la capacidad de carga de la Hilux, el bot dice lo que sí sabe y aclara que la cifra no está. No inventa ni responde "no tengo información".</p></div>
+  </div>
+
+  <div class="shots pair">
+    <figure class="shot"><img src="assets/chat-trampa-hilux.jpg" alt="El bot responde sobre la capacidad de carga de la Hilux sin inventar una cifra" loading="lazy"><figcaption class="shot-cap">Pregunta trampa del Test Bed: la capacidad de carga de la Hilux no tiene cifra en la información oficial.</figcaption></figure>
+    <figure class="shot" style="align-self:center"><img src="assets/chat-oferta-fortuner.jpg" alt="El bot ofrece cotización o test drive y pregunta cuál prefiere ante un sí ambiguo" loading="lazy"><figcaption class="shot-cap">Ante un "Sí, me interesa", pregunta si prefiere cotización o test drive antes de pedir los datos. Captura de la etapa de pruebas.</figcaption></figure>
+  </div>
+
+  <h3 class="h3">Los videos de la entrega</h3>
+  <div class="videos">
+    <div class="vid"><div class="frame"><iframe src="https://www.loom.com/embed/f906a8a9c511428caf58c1ed7787cbf8" title="Flujo de Ventas" loading="lazy" allowfullscreen></iframe></div><div class="vid-cap"><b>Ventas</b><span>Consultas, captura del lead y registro en el CRM</span></div></div>
+    <div class="vid"><div class="frame"><iframe src="https://www.loom.com/embed/3aded0cb994a4459af1e63d13397dfd3" title="Flujo de Taller" loading="lazy" allowfullscreen></iframe></div><div class="vid-cap"><b>Taller</b><span>Agendamiento y registro de la cita en Google Sheets</span></div></div>
+    <div class="vid"><div class="frame"><iframe src="https://www.loom.com/embed/415eee00573344359954256c15f75554" title="Test Bed" loading="lazy" allowfullscreen></iframe></div><div class="vid-cap"><b>Test Bed</b><span>Las diez preguntas de validación, 10/10</span></div></div>
+  </div>
+
+  <h3 class="h3">Los archivos</h3>
+  <div class="files">
+    <a class="file" href="atom-motortech-bot/flow/motortech-toyota-colombia-flow.json"><span class="ext">JSON</span><span><b>Flujo exportado de ATOM</b><span>Sin tokens, claves ni URLs privadas</span></span></a>
+    <a class="file" href="atom-motortech-bot/Documentacion_Bot_MotorTech.pdf"><span class="ext">PDF</span><span><b>Documentación técnica</b><span>Arquitectura, pruebas y problemas resueltos</span></span></a>
+    <a class="file" href="https://docs.google.com/spreadsheets/d/10EyuI5lfp0J-jNhDXGFfm0qARVBU5Es10pYyPI3eWEs" target="_blank" rel="noopener"><span class="ext">SHEETS</span><span><b>Test Bed</b><span>Resultados, pruebas de conversación e iteraciones</span></span></a>
+    <a class="file" href="https://docs.google.com/spreadsheets/d/1w_grXUs9h-dljgpVBecnpxnd_ZMUFCwAgAMKNrCVt4Q" target="_blank" rel="noopener"><span class="ext">SHEETS</span><span><b>Citas de taller</b><span>Las filas que registró el bot</span></span></a>
+    <a class="file" href="https://github.com/bautolloni-png/Proyectos/tree/main/customer-success/atom-motortech-bot" target="_blank" rel="noopener"><span class="ext">REPO</span><span><b>Carpeta del caso</b><span>Todo lo anterior, más el Excel del Test Bed</span></span></a>
+  </div>
+</section>
+
+<!-- ============ KREDITU ============ -->
+<section id="kreditu" style="--c:#EC4899;--c-d:#DB2777">
+  <div class="eyebrow">03 · Caso Kreditu</div>
+  <h2 class="h2">Una cuenta a 40 días de la renovación</h2>
+  <p class="lede">Kreditu es una fintech con el plan Business de ATOM, de USD 2.800 por mes. Llego como nuevo CSM, con la renovación a 40 días, y tengo que presentar mi lectura de la cuenta y una propuesta en la primera conversación con Valentina Ríos, Head of Digital Channels.</p>
+
+  <h3 class="h3">Lo que encontré</h3>
+  <div class="kpis">
+    <div class="kgroup"><h4>Adopción</h4>
+      <div class="kpi bad"><div class="v">41%</div><div class="k">automatización, contra 75% contratado</div></div>
+      <div class="kpi"><div class="v">3 / 12</div><div class="k">flujos activos</div></div>
+      <div class="kpi"><div class="v">18 / 60</div><div class="k">agentes activos</div></div>
+    </div>
+    <div class="kgroup"><h4>Operación</h4>
+      <div class="kpi bad"><div class="v">2</div><div class="k">quejas formales por tasas mal informadas</div></div>
+      <div class="kpi"><div class="v">38</div><div class="k">tickets de soporte por mes</div></div>
+      <div class="kpi"><div class="v">3,4 / 5</div><div class="k">CSAT de las conversaciones</div></div>
+    </div>
+    <div class="kgroup"><h4>Continuidad</h4>
+      <div class="kpi"><div class="v">2</div><div class="k">sesiones de Customer Success en 7 meses</div></div>
+      <div class="kpi bad"><div class="v">2 meses</div><div class="k">sin CSM asignado</div></div>
+      <div class="kpi"><div class="v">3</div><div class="k">coordinadores en 7 meses</div></div>
+    </div>
+  </div>
+  <div class="result"><span class="l">Mi lectura</span><span class="t">No es solo un problema de adopción: es de operación y de confianza en la herramienta.</span></div>
+
+  <h3 class="h3">Cinco causas, tres frentes</h3>
+  <p class="sub">No propuse reactivar los doce flujos. La primera causa explica buena parte del resto, así que concentré los 40 días en lo que más afecta el valor y la confianza.</p>
+  <div class="rows">
+    <div class="row"><span class="row-c">Implementación simultánea de 12 flujos sin priorización</span><span class="pill" style="--pc:#6B6880">Criterio del plan</span></div>
+    <div class="row"><span class="row-c">Tasas sin una fuente única de información</span><span class="pill" style="--pc:#DB2777">Frente 1: Tasas</span></div>
+    <div class="row"><span class="row-c">Flujo de cobros sin configuración funcional</span><span class="pill" style="--pc:#7C3AED">Frente 2: Cobros</span></div>
+    <div class="row"><span class="row-c">Integración de scoring sin responsable definido</span><span class="pill" style="--pc:#7C3AED">Frente 2: Cobros</span></div>
+    <div class="row"><span class="row-c">Pérdida de conocimiento por rotación de coordinadores</span><span class="pill" style="--pc:#0F9488">Frente 3: Continuidad</span></div>
+  </div>
+
+  <div class="fronts">
+    <div class="front" style="--pc:#DB2777">
+      <div class="when">SEMANA 1</div>
+      <h4>Tasas de interés</h4>
+      <p class="sub">Va primero porque ya generó dos quejas formales.</p>
+      <div class="path"><span>Corregir</span><i>→</i><span>Validar con Cumplimiento</span><i>→</i><span>Fuente única</span><i>→</i><span class="ok">Confianza</span></div>
+      <div class="del"><b>ENTREGABLE</b>100% de los mensajes con tasas corregidos y validados</div>
+    </div>
+    <div class="front" style="--pc:#7C3AED">
+      <div class="when">SEMANAS 1 A 4</div>
+      <h4>Cobros</h4>
+      <p class="sub">Es el principal caso de uso de Kreditu y no voy a esperar a que se destrabe la API para generar valor.</p>
+      <div class="path"><span class="x">API de scoring</span><i>→</i><span>Archivo de cartera</span><i>→</i><span>Segmentación por atraso</span><i>→</i><span>Piloto</span><i>→</i><span class="ok">Clientes reales</span></div>
+      <div class="del"><b>ENTREGABLE</b>Flujo de cobros funcionando con clientes reales en la semana 4</div>
+    </div>
+    <div class="front" style="--pc:#0F9488">
+      <div class="when">SEMANAS 1 A 5</div>
+      <h4>Continuidad operativa</h4>
+      <p class="sub">El conocimiento tiene que quedar en la operación, no en una persona.</p>
+      <div class="path"><span>Responsable y suplente</span><span>Manual</span><span>Preguntas frecuentes</span><span>Capacitación</span><span>Registro de cambios</span></div>
+      <div class="del"><b>ENTREGABLE</b>Manual publicado y equipo capacitado</div>
+    </div>
+  </div>
+
+  <h3 class="h3">Cómo lo mido</h3>
+  <p class="sub">El éxito no se mide solo por el porcentaje de automatización.</p>
+  <table class="m">
+    <thead><tr><th>Dimensión</th><th>Indicador</th><th>Hoy</th><th>Meta a 40 días</th></tr></thead>
+    <tbody>
+      <tr><td class="d">ADOPCIÓN</td><td>Automatización</td><td class="now">41%</td><td class="goal">55% (75% a 6 meses)</td></tr>
+      <tr><td class="d">ADOPCIÓN</td><td>Flujo de cobros</td><td class="now">No funciona</td><td class="goal">Con clientes reales</td></tr>
+      <tr><td class="d">OPERACIÓN</td><td>Errores de tasas</td><td class="now">2 quejas formales</td><td class="goal">0 durante 30 días</td></tr>
+      <tr><td class="d">OPERACIÓN</td><td>Tickets de soporte</td><td class="now">38 por mes</td><td class="goal">Menos de 20</td></tr>
+      <tr><td class="d">EXPERIENCIA</td><td>CSAT de las conversaciones</td><td class="now">3,4 / 5</td><td class="goal">4,0 / 5</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="h3">La presentación</h3>
+  <div class="videos">
+    <div class="vid big" style="grid-column:1/-1"><div class="frame"><video controls preload="metadata" poster="assets/kreditu-portada.jpg"><source src="kreditu-plan-40-dias/presentacion-kreditu.mp4" type="video/mp4"></video></div><div class="vid-cap"><b>Primera conversación ejecutiva con Kreditu</b><span>Diagnóstico, prioridades, plan de 40 días y próximos pasos</span></div></div>
+  </div>
+  <div class="shots">
+    <figure class="shot"><img src="assets/kreditu-situacion.jpg" alt="Diapositiva de situación actual de la cuenta" loading="lazy"><figcaption class="shot-cap">Situación actual: adopción, operación y continuidad.</figcaption></figure>
+    <figure class="shot"><img src="assets/kreditu-cobros.jpg" alt="Diapositiva del frente de cobros" loading="lazy"><figcaption class="shot-cap">Frente de cobros: la alternativa temporal a la API bloqueada.</figcaption></figure>
+  </div>
+  <div class="files">
+    <a class="file" href="https://docs.google.com/presentation/d/1SVG2erO4yTOJS26Q9y0iYq7FwQNKuSINOFJEV02_4fg" target="_blank" rel="noopener"><span class="ext">SLIDES</span><span><b>Presentación</b><span>Google Slides</span></span></a>
+    <a class="file" href="kreditu-plan-40-dias/Informe_Kreditu_Plan_40_dias.pdf"><span class="ext">PDF</span><span><b>Informe del plan</b><span>Diagnóstico, frentes, indicadores y supuestos</span></span></a>
+    <a class="file" href="kreditu-plan-40-dias/Presentacion_Kreditu.pdf"><span class="ext">PDF</span><span><b>Diapositivas</b><span>Versión para descargar</span></span></a>
+  </div>
+</section>
+
+<!-- ============ COMO TRABAJO ============ -->
+<section id="como-trabajo" style="--c:#14B8A6;--c-d:#0F9488">
+  <div class="eyebrow">04 · Cómo trabajo</div>
+  <h2 class="h2">Lo que tienen en común los dos casos</h2>
+  <div class="pillars">
+    <div class="pillar" style="--pc:var(--violet)"><div class="dot"></div><h3>Ownership</h3><p>Tomo la cuenta como propia y coordino a quien haga falta: equipo técnico, soporte, dirección y el equipo del cliente.</p></div>
+    <div class="pillar" style="--pc:var(--pink)"><div class="dot"></div><h3>Priorizar</h3><p>Primero lo que genera riesgo, después lo que genera valor. Tres frentes bien hechos en lugar de doce a medias.</p></div>
+    <div class="pillar" style="--pc:var(--amber)"><div class="dot"></div><h3>Resolver con lo que hay</h3><p>Si una dependencia técnica está trabada, busco otro camino hacia el valor mientras se destraba.</p></div>
+    <div class="pillar" style="--pc:var(--teal)"><div class="dot"></div><h3>Medir y documentar</h3><p>Metas con línea base, pruebas repetibles y documentación para que el conocimiento no se vaya con las personas.</p></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="cta">
+    <div>
+      <h2>Hablemos</h2>
+      <p>Busco roles de Customer Success en empresas SaaS B2B, en remoto. Puedo recorrer cualquiera de estos casos en pantalla, con la herramienta abierta.</p>
+    </div>
+    <div class="cta-links">
+      <a href="https://www.linkedin.com/in/bautistatolloni" target="_blank" rel="noopener">linkedin.com/in/bautistatolloni ↗</a>
+      <a href="mailto:bautolloni@gmail.com">bautolloni@gmail.com</a>
+      <a href="tel:+543517049406">+54 351 704 9406</a>
+      <a href="../">Portfolio CRM &amp; Lifecycle ↗</a>
+    </div>
+  </div>
+  <p class="foot">Córdoba, Argentina. Los dos casos son desafíos técnicos de un proceso de selección; MotorTech y Kreditu son empresas del enunciado. El flujo exportado está publicado sin tokens, claves ni direcciones privadas.</p>
+</section>
+
+</div></div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function onScroll(){
+    var y=window.scrollY+140, cur=0;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) cur=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===cur); });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>

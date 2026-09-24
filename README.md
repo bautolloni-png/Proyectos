@@ -8,6 +8,16 @@ CRM, lifecycle marketing y entregabilidad de email. Esto no es un CV: son las se
 
 ## Qué hay acá
 
+### [Customer Success](https://bautolloni-png.github.io/Proyectos/customer-success/) — dos casos de punta a punta
+
+Los desafíos técnicos de un proceso de selección para Customer Success Manager en ATOM, una plataforma de comercio conversacional por WhatsApp.
+
+| | |
+|---|---|
+| **[Bot de WhatsApp para MotorTech](./customer-success/atom-motortech-bot)** | Clasificador de intención, asesor de ventas con base de conocimiento (10/10 en el Test Bed), captura de leads integrada con un CRM por API y agendamiento de taller en Google Sheets. Incluye el flujo exportado en JSON |
+| **[Kreditu: plan de acción a 40 días](./customer-success/kreditu-plan-40-dias)** | Diagnóstico de una cuenta SaaS en riesgo a 40 días de la renovación, tres frentes priorizados, indicadores de éxito y la presentación en video |
+
+
 ### [El one-pager](https://bautolloni-png.github.io/Proyectos/) — interactivo
 
 Diez secciones sobre trabajo real, con demos que se tocan:

@@ -1,0 +1,5463 @@
+{
+  "cells": [
+    {
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "attrs": {},
+      "source": {
+        "port": "909ef01f-b153-499d-bafb-861146fdaf21",
+        "id": "08cb5e3e-0684-4efe-89ce-23e0a217ef7c",
+        "magnet": "portButton"
+      },
+      "cellId": "0mFMCSYTUqL3A8P42Gbo",
+      "target": {
+        "magnet": "portBody",
+        "port": "0327be43-1c85-4a3f-9921-125760444e03",
+        "id": "6b388c7b-6752-42e4-b1c4-2d1f670459ec"
+      },
+      "z": -1,
+      "type": "app.Link",
+      "id": "19733713-fc13-4a88-8bff-be377c27787a"
+    },
+    {
+      "position": {
+        "y": 904,
+        "x": -5752
+      },
+      "cellId": "0vj5lL7rZpyrrzwRNC4h",
+      "z": 53,
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "wasOpened": true,
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "http": {
+          "optionalFields": {
+            "url": {
+              "replaced": "<SHEETS_WEBAPP_URL>",
+              "values": []
+            },
+            "body": {
+              "content": "{\n  \"clave\": \"<SHEETS_SHARED_KEY>\",\n  \"nombre\": \"{{client.first_name}}\",\n  \"placa\": \"{{client.custom_placa_vehiculo}}\",\n  \"motivo\": \"{{client.custom_descripcion_del_problema_taller}}\",\n  \"fecha\": \"{{client.custom_fecha_deseada_cita_taller}}\",\n  \"hora\": \"{{client.custom_hora_cita_taller}}\"\n}",
+              "replaced": "",
+              "values": []
+            },
+            "headers": {}
+          },
+          "fieldsToSave": [
+            {
+              "isFocus": false,
+              "optionalField": null,
+              "nameError": false,
+              "dynamicField": {
+                "originComponent": "http",
+                "keyword": "sheets_status",
+                "displayModules": [],
+                "name": "sheets_status",
+                "id": "a02816d3-66a8-4f60-aff9-18f2bab6f066",
+                "isFlowField": true,
+                "type": "dynamic"
+              },
+              "responseKey": "status",
+              "fieldType": "dynamic",
+              "id": "3ea58314-58d5-4122-9072-f4db24e32cba"
+            }
+          ],
+          "authConfig": {
+            "type": "NONE",
+            "enabled": false
+          },
+          "data": {
+            "method": "POST",
+            "body": {
+              "placa": "{{client.custom_placa_vehiculo}}",
+              "fecha": "{{client.custom_fecha_deseada_cita_taller}}",
+              "motivo": "{{client.custom_descripcion_del_problema_taller}}",
+              "hora": "{{client.custom_hora_cita_taller}}",
+              "nombre": "{{client.first_name}}",
+              "clave": "<SHEETS_SHARED_KEY>"
+            },
+            "timeoutSeconds": 20,
+            "responseConditions": [
+              {
+                "type": "success",
+                "range": "200-299",
+                "isValid": true,
+                "hasRangeError": false,
+                "id": "success"
+              },
+              {
+                "isValid": true,
+                "type": "failure",
+                "hasRangeError": false,
+                "range": "400-599",
+                "id": "failure"
+              }
+            ],
+            "headers": [
+              {
+                "value": "application/json",
+                "key": "Content-Type",
+                "isSensitive": false,
+                "id": "de99cdc5-dc08-441c-b5a5-76a8dac50d5d",
+                "hasVariables": false,
+                "replaced": {
+                  "values": [],
+                  "body": "application/json"
+                }
+              }
+            ],
+            "url": "<SHEETS_WEBAPP_URL>"
+          }
+        },
+        "config": {
+          "handleSave": true,
+          "body": true,
+          "handleResponse": true,
+          "headers": true,
+          "customTimeout": true
+        },
+        "label": {
+          "text": "Petición HTTP #4"
+        }
+      },
+      "id": "4ace2adf-c559-4224-854f-4a7558463619",
+      "type": "app.HttpV2",
+      "ports": {
+        "items": [
+          {
+            "id": "712ecdc0-2f8a-47c3-9018-337f1678e2d3",
+            "group": "in"
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": 175
+            },
+            "group": "default",
+            "id": "919adeab-dde8-4b4b-a0c3-bb1430a1bbc7",
+            "attrs": {
+              "portLabel": {
+                "x": 0,
+                "fontWeight": 500,
+                "fill": "#52525C",
+                "textAnchor": "middle",
+                "text": "Error"
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portBody": {
+                "ry": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "rx": 14,
+                "strokeWidth": 1,
+                "fill": "#F4F7FA"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              }
+            },
+            "category": "failure"
+          },
+          {
+            "args": {
+              "x": -95,
+              "y": 180
+            },
+            "group": "default",
+            "id": "a1e83242-2a8b-4bda-8880-b23608aa4501",
+            "category": "success",
+            "attrs": {
+              "portBody": {
+                "rx": 14,
+                "ry": 14,
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "fill": "#F4F7FA"
+              },
+              "portLabel": {
+                "textAnchor": "middle",
+                "text": "Éxito",
+                "fontWeight": 500,
+                "x": 0,
+                "fill": "#52525C"
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "x": -5596,
+        "y": 1986.5
+      },
+      "wasOpened": false,
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #21"
+        }
+      },
+      "id": "44f53e7b-4359-45fe-97f8-03516514364e",
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "ba70cbe4-171c-478c-bf0a-664b1ab5ef75"
+          }
+        ]
+      },
+      "z": 57,
+      "cellId": "3rDgzC4fBbl0K66GnzCT",
+      "size": {
+        "width": 48,
+        "height": 48
+      },
+      "type": "app.FlowchartEnd"
+    },
+    {
+      "type": "app.Link",
+      "version": "1",
+      "id": "939cd4d1-c9cf-48b7-bd69-42b8bfeba935",
+      "z": -1,
+      "attrs": {},
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          }
+        }
+      ],
+      "source": {
+        "port": "40f7ba87-bc58-44d9-89ca-3ce0ca73259c",
+        "magnet": "portButton",
+        "id": "19997eee-5f08-4d15-8bc0-1a2c93d0dda9"
+      },
+      "cellId": "4AwXODYoGCIDlawv2NSw",
+      "target": {
+        "magnet": "portBody",
+        "id": "f31dcebe-6a8d-42c3-b97d-6a053e280672",
+        "port": "74b70a2d-8052-4360-b9ed-da902a41e1cd"
+      }
+    },
+    {
+      "source": {
+        "port": "c754042b-9393-4826-a54e-43dd5b098a48",
+        "id": "ad1ec6d8-c4c4-4a2f-a625-acdb6fea0ef9",
+        "magnet": "portButton"
+      },
+      "cellId": "4MYdiUAXRRGirsgN147X",
+      "target": {
+        "port": "677a6b97-3c09-4941-9ebf-ace7e92319d2",
+        "magnet": "portBody",
+        "id": "915939af-a58c-4ca7-8242-34887613fb7e"
+      },
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          }
+        }
+      ],
+      "z": -1,
+      "attrs": {},
+      "type": "app.Link",
+      "id": "9260e1cd-b61b-4218-92ca-bd1c2708027a",
+      "version": "1"
+    },
+    {
+      "z": -1,
+      "type": "app.Link",
+      "id": "018bf654-496c-49d9-8aae-3c1b0e56db7a",
+      "version": "1",
+      "attrs": {},
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "target": {
+        "port": "438b83e2-5953-424e-98cf-6227cb1dc547",
+        "id": "e296f271-3b26-4729-b407-ef9d2a1b492f",
+        "magnet": "portBody"
+      },
+      "cellId": "5mMPB3JnO5oeCgu9jdd1",
+      "source": {
+        "magnet": "portButton",
+        "id": "ab1a1fe8-8c58-434f-b725-74f225bc3b7f",
+        "port": "6f7754a0-3621-43ed-af8c-0afb86eb00c7"
+      }
+    },
+    {
+      "cellId": "5oHU5vIu8NcTc3fE654g",
+      "wasOpened": false,
+      "z": 11,
+      "size": {
+        "width": 48,
+        "height": 48
+      },
+      "position": {
+        "y": 32,
+        "x": -4752
+      },
+      "version": "1",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #1"
+        }
+      },
+      "id": "f31dcebe-6a8d-42c3-b97d-6a053e280672",
+      "type": "app.FlowchartEnd",
+      "ports": {
+        "items": [
+          {
+            "id": "74b70a2d-8052-4360-b9ed-da902a41e1cd",
+            "group": "in"
+          }
+        ]
+      }
+    },
+    {
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          }
+        }
+      ],
+      "attrs": {},
+      "cellId": "6NQbr3QBKWXwpJ9HVAW3",
+      "target": {
+        "port": "cffe6f5a-dd8a-4471-9750-0b142fc38d61",
+        "magnet": "portBody",
+        "id": "120f70c1-7af8-4f56-90a3-01fad01f122c"
+      },
+      "source": {
+        "id": "ab1a1fe8-8c58-434f-b725-74f225bc3b7f",
+        "magnet": "portButton",
+        "port": "3efa5877-aece-4b3b-b29e-f0df71ea31ea"
+      },
+      "type": "app.Link",
+      "version": "1",
+      "z": -1,
+      "id": "d80c6bec-f02e-430e-bdb9-e5aac91f40ef"
+    },
+    {
+      "id": "36366978-ba90-4fef-82c3-c5a6ba64f21f",
+      "attrs": {},
+      "type": "app.Link",
+      "cellId": "7H8Fkh2j6FBMLbFgCU6a",
+      "target": {
+        "id": "1b71a2a6-515a-442b-812d-a449f08a25ff",
+        "magnet": "portBody",
+        "port": "402ac896-9026-4201-9a93-5a52b0ca085c"
+      },
+      "source": {
+        "magnet": "portButton",
+        "id": "120f70c1-7af8-4f56-90a3-01fad01f122c",
+        "port": "a6353927-8b17-476e-a2e9-d7c8d905d644"
+      },
+      "version": "1",
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "z": -1
+    },
+    {
+      "attrs": {},
+      "type": "app.Link",
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "target": {
+        "id": "5594589d-c454-4bbd-b12d-b0e3cf725c71",
+        "magnet": "portBody",
+        "port": "77182a12-5997-4319-83a7-fcff4da5f158"
+      },
+      "cellId": "AvS6DzeDW0IxW04eVGtA",
+      "source": {
+        "magnet": "portButton",
+        "id": "7dcb6728-c764-4853-9ab2-7f33606d803e",
+        "port": "500e5821-f850-477b-bbb8-0d6d0e91a95b"
+      },
+      "version": "1",
+      "z": -1,
+      "id": "7293ade5-8cb2-4961-9369-eb54401cc416"
+    },
+    {
+      "id": "73efaefb-a962-4774-b7fe-677fb1682f7d",
+      "z": 30,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "4f4f30b9-08cb-4650-b882-9ec11278534e"
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": 175
+            },
+            "group": "default",
+            "id": "fe921881-9a4b-4f68-8d64-86f4f196206f",
+            "attrs": {
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "text": "Error",
+                "textAnchor": "middle",
+                "fontWeight": 500,
+                "x": 0
+              },
+              "portBody": {
+                "strokeWidth": 1,
+                "rx": 14,
+                "ry": 14,
+                "fill": "#F4F7FA",
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              }
+            },
+            "category": "failure"
+          },
+          {
+            "attrs": {
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portLabel": {
+                "textAnchor": "middle",
+                "fill": "#52525C",
+                "fontWeight": 500,
+                "text": "Éxito",
+                "x": 0
+              },
+              "portBody": {
+                "strokeWidth": 1,
+                "ry": 14,
+                "rx": 14,
+                "fill": "#F4F7FA",
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              }
+            },
+            "id": "edb52152-9930-43bc-b5a5-78ce61535dbc",
+            "group": "default",
+            "args": {
+              "x": -95,
+              "y": 180
+            },
+            "category": "success"
+          }
+        ]
+      },
+      "attrs": {
+        "http": {
+          "data": {
+            "headers": [
+              {
+                "hasVariables": false,
+                "key": "Authorization",
+                "id": "3e95bdd4-2fb1-45a0-9748-0d5a6b0daa4d",
+                "value": "Bearer <CRM_BEARER_TOKEN>",
+                "isSensitive": true,
+                "replaced": {
+                  "values": [],
+                  "body": "Bearer <CRM_BEARER_TOKEN>"
+                }
+              }
+            ],
+            "url": "<CRM_TOKEN_ENDPOINT>",
+            "timeoutSeconds": 20,
+            "method": "GET",
+            "body": "",
+            "responseConditions": [
+              {
+                "id": "success",
+                "range": "200-299",
+                "isValid": true,
+                "hasRangeError": false,
+                "type": "success"
+              },
+              {
+                "id": "failure",
+                "type": "failure",
+                "isValid": true,
+                "range": "400-599",
+                "hasRangeError": false
+              }
+            ]
+          },
+          "fieldsToSave": [
+            {
+              "isFocus": false,
+              "id": "f5f5908a-9cbc-4416-b3e1-6c6acae44f52",
+              "fieldType": "dynamic",
+              "responseKey": "token",
+              "optionalField": null,
+              "dynamicField": {
+                "id": "065a23f9-67bf-4c50-a554-01701328cab7",
+                "type": "dynamic",
+                "displayModules": [],
+                "originComponent": "http",
+                "category": "flow_field",
+                "keyword": "crm_token",
+                "isFlowField": true,
+                "name": "crm_token"
+              },
+              "nameError": false
+            }
+          ],
+          "authConfig": {
+            "enabled": false,
+            "type": "NONE"
+          },
+          "optionalFields": {
+            "body": {
+              "values": [],
+              "content": "",
+              "replaced": ""
+            },
+            "headers": {},
+            "url": {
+              "replaced": "<CRM_TOKEN_ENDPOINT>",
+              "content": "",
+              "values": []
+            }
+          }
+        },
+        "label": {
+          "text": "Petición HTTP #1"
+        },
+        "config": {
+          "handleResponse": true,
+          "customTimeout": true,
+          "headers": true,
+          "handleSave": true
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "position": {
+        "y": 840,
+        "x": -7352
+      },
+      "wasOpened": false,
+      "cellId": "BSguzNgTukqZRRGbP4KT",
+      "type": "app.HttpV2",
+      "version": "1",
+      "size": {
+        "width": 72,
+        "height": 72
+      }
+    },
+    {
+      "z": -1,
+      "id": "2e0575b8-72d2-457c-b1d6-d496e24d9fec",
+      "attrs": {},
+      "target": {
+        "id": "44f53e7b-4359-45fe-97f8-03516514364e",
+        "port": "ba70cbe4-171c-478c-bf0a-664b1ab5ef75",
+        "magnet": "portBody"
+      },
+      "cellId": "BgqtX8j48AHPStXkuBfK",
+      "source": {
+        "id": "068f5bb1-09e2-4278-9481-e79c51c83766",
+        "port": "18b8a195-0dc2-468a-9696-de03c43ffdc7",
+        "magnet": "portButton"
+      },
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "type": "app.Link"
+    },
+    {
+      "messageChanged": false,
+      "cellId": "C2W5r8XSLCLUiRSgIZaq",
+      "attrs": {
+        "description": {
+          "values": [
+            "first_name",
+            "custom_modelo_de_interes",
+            "crm_id_nuevo"
+          ],
+          "text": "¡Listo, first_name! Registramos su solicitud en MotorTech. Un asesor lo contactará pronto con la información de la Toyota custom_modelo_de_interes.\nNúmero de referencia: crm_id_nuevo",
+          "replacedText": "¡Listo, {{client.first_name}}! Registramos su solicitud en MotorTech. Un asesor lo contactará pronto con la información de la Toyota {{client.custom_modelo_de_interes}}.\nNúmero de referencia: {{flow_field.crm_id_nuevo}}"
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "data": {
+          "info": {
+            "imgCheck": false,
+            "location": {
+              "address": "",
+              "longitude": null,
+              "latitude": null,
+              "name": ""
+            },
+            "platform": "whatsapp",
+            "text": "¡Listo, {{client.first_name}}! Registramos su solicitud en MotorTech. Un asesor lo contactará pronto con la información de la Toyota {{client.custom_modelo_de_interes}}.\nNúmero de referencia: {{flow_field.crm_id_nuevo}}",
+            "isGeolocationChecked": false,
+            "replacedText": "",
+            "buttonsCheck": false,
+            "isAddressChecked": true,
+            "type": "interactive_text",
+            "file": "",
+            "buttonsChecked": false
+          }
+        },
+        "label": {
+          "text": "Mensaje #12"
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "id": "735c9053-ee51-41ba-8dbe-b06285a9f8b6",
+            "group": "in"
+          },
+          {
+            "id": "ed545de4-c1b4-4a4d-b789-991590ccf955",
+            "attrs": {
+              "portBody": {
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              }
+            },
+            "group": "out",
+            "args": {
+              "y": 200.49998474121094,
+              "x": 190
+            }
+          }
+        ]
+      },
+      "size": {
+        "height": 200.49998474121094,
+        "width": 400
+      },
+      "wasOpened": false,
+      "z": 41,
+      "version": "1",
+      "type": "app.Message",
+      "id": "4cfbef06-f0c4-4a4e-8192-8ec34901a297",
+      "position": {
+        "x": -8224,
+        "y": 2528
+      }
+    },
+    {
+      "z": 21,
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #7"
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "d2b040b3-a1f4-4624-95d7-db32409dc6bb"
+          }
+        ]
+      },
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "cellId": "CRuirgGqDzLrYztYqqIp",
+      "version": "1",
+      "id": "caf09eca-0a0a-4f01-956c-41e8b4b1343b",
+      "wasOpened": false,
+      "position": {
+        "x": -6088,
+        "y": 744
+      },
+      "type": "app.FlowchartEnd"
+    },
+    {
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #16"
+        }
+      },
+      "z": 44,
+      "id": "e459059c-4e80-4acc-b6d1-cb9b88d77b72",
+      "ports": {
+        "items": [
+          {
+            "id": "e0ecf0ed-d503-4cd5-ac2a-d6ad344fd9f1",
+            "group": "in"
+          }
+        ]
+      },
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "position": {
+        "x": -7492,
+        "y": 2778.5
+      },
+      "cellId": "Dta1DzWt1d7tqyn3Fxcz",
+      "type": "app.FlowchartEnd",
+      "wasOpened": false,
+      "version": "1"
+    },
+    {
+      "id": "857c0ed9-3f68-4c29-b0bf-5d90134d550b",
+      "attrs": {},
+      "type": "app.Link",
+      "source": {
+        "magnet": "portButton",
+        "port": "f9f4c1b5-0102-43c1-b43c-1052f59d6212",
+        "id": "96f902db-a91d-4853-98d2-b13416d181f1"
+      },
+      "cellId": "EDsFyOQY9OiFp6APysye",
+      "target": {
+        "magnet": "portBody",
+        "id": "4ace2adf-c559-4224-854f-4a7558463619",
+        "port": "712ecdc0-2f8a-47c3-9018-337f1678e2d3"
+      },
+      "z": -1,
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "type": "app.Link",
+      "attrs": {},
+      "version": "1",
+      "id": "00bbc37e-5ee4-4385-bbd5-c49ceba38fb7",
+      "z": -1,
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "cellId": "El1cgWm3U11O2qw5vEJ0",
+      "target": {
+        "port": "e0ecf0ed-d503-4cd5-ac2a-d6ad344fd9f1",
+        "magnet": "portBody",
+        "id": "e459059c-4e80-4acc-b6d1-cb9b88d77b72"
+      },
+      "source": {
+        "magnet": "portButton",
+        "port": "4eb615e1-bbcc-423c-bb98-c57086a9f6ad",
+        "id": "5594589d-c454-4bbd-b12d-b0e3cf725c71"
+      }
+    },
+    {
+      "source": {
+        "magnet": "portButton",
+        "port": "7e797eae-2723-4d2b-8543-9c62582d5b62",
+        "id": "ebcf2e10-4ecd-4ea4-9745-f3ef7b8dc5e2"
+      },
+      "cellId": "FOk53ZB0GMCFotP1fwxt",
+      "target": {
+        "port": "c166a835-4a45-4f32-b8ac-2b0215207a68",
+        "id": "1ab03a58-e0ae-4522-9504-469d321f4b69",
+        "magnet": "portBody"
+      },
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "attrs": {},
+      "z": -1,
+      "id": "dd8ddc73-7fec-4e93-bafe-87bb07ec9dff",
+      "version": "1",
+      "type": "app.Link"
+    },
+    {
+      "ports": {
+        "items": [
+          {
+            "id": "95ecd8fa-2714-4f31-9a2e-39f375adf2e3",
+            "group": "in"
+          }
+        ]
+      },
+      "type": "app.FlowchartEnd",
+      "position": {
+        "y": 1648,
+        "x": -7496
+      },
+      "version": "1",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #14"
+        }
+      },
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "wasOpened": false,
+      "cellId": "FqMokuJtSXjadxd6kIy3",
+      "z": 38,
+      "id": "94aaad42-afff-45c1-a43e-ff1048b336c9"
+    },
+    {
+      "wasOpened": false,
+      "cellId": "GV2pPs9cAc0KOGRR4uH9",
+      "position": {
+        "x": -8060,
+        "y": 2898.499984741211
+      },
+      "type": "app.FlowchartEnd",
+      "version": "1",
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "4590259c-5a3d-4542-afa0-9757c0518642"
+          }
+        ]
+      },
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "id": "209c2512-965f-4834-a834-0b57e55e765a",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #15"
+        }
+      },
+      "z": 42
+    },
+    {
+      "cellId": "HFnlq40Q1VhyOLwCGzG4",
+      "wasOpened": true,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "593dd806-5500-4736-9052-e18bd3a86c65"
+          },
+          {
+            "group": "neutral",
+            "id": "f8601e68-5578-4bac-9bae-5b6aaa2de6a6"
+          }
+        ]
+      },
+      "attrs": {
+        "jump": {
+          "optionalFields": {
+            "fields": {}
+          },
+          "data": {
+            "jumpRepetitions": 1,
+            "initComponentGroup": {
+              "type": "app.Smarton",
+              "color": "#FFFFFF",
+              "label": "Smarton #4",
+              "id": "96f902db-a91d-4853-98d2-b13416d181f1"
+            },
+            "isJumpEnd": true,
+            "advancedSettings": false,
+            "connectedFlow": null
+          }
+        },
+        "label": {
+          "text": "Inicio de Salto #1"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "z": 61,
+      "type": "app.Jump",
+      "id": "9da27e76-8ee8-4b5f-a358-64495694c083",
+      "position": {
+        "x": -6568,
+        "y": 328
+      },
+      "size": {
+        "width": 72,
+        "height": 72
+      }
+    },
+    {
+      "cellId": "HPQarfthtfUmbIzxZWCX",
+      "wasOpened": true,
+      "ports": {
+        "items": [
+          {
+            "id": "a3bcb142-13c8-4e83-8c39-a1f855a2f3c5",
+            "group": "in"
+          },
+          {
+            "id": "34406eda-419f-4f2b-8630-1537270c53fd",
+            "attrs": {
+              "portLabel": {
+                "text": "Otro",
+                "fontWeight": 500,
+                "fill": "#52525C"
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "portBody": {
+                "rx": 14,
+                "fill": "#FFF4EE",
+                "ry": 14,
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              }
+            },
+            "category": "other",
+            "group": "default",
+            "args": {
+              "x": 175,
+              "y": 180
+            }
+          },
+          {
+            "id": "1c36ab7b-e60a-471a-83d0-f17e13a98a32",
+            "attrs": {
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "selectedOption": {
+                "defaultValueTracked": true,
+                "httpComponent": "",
+                "title": "Cita registrada",
+                "text": "es igual que",
+                "currentSchedule": "",
+                "value": "",
+                "selectedResult": "informationField",
+                "conditions": [
+                  {
+                    "value": {
+                      "values": [],
+                      "body": "success"
+                    },
+                    "valueType": {
+                      "originComponent": "http",
+                      "id": "a02816d3-66a8-4f60-aff9-18f2bab6f066",
+                      "type": "dynamic",
+                      "keyword": "sheets_status",
+                      "category": "flow_field",
+                      "displayModules": [],
+                      "name": "sheets_status",
+                      "isFlowField": true
+                    },
+                    "condition": null,
+                    "operator": {
+                      "type": "text",
+                      "expression": "===",
+                      "originalText": "es igual que",
+                      "atomMagic": true,
+                      "regex": false,
+                      "text": "es igual que",
+                      "category": "equal_to"
+                    }
+                  }
+                ],
+                "category": "equal_to",
+                "valueType": ""
+              },
+              "portLabel": {
+                "fontWeight": 500,
+                "fill": "#52525C",
+                "text": "es igual que Cita registrada"
+              },
+              "portRemoveButton": {
+                "display": "unset"
+              },
+              "portBody": {
+                "fill": "#F4F7FA",
+                "rx": 14,
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "ry": 14
+              }
+            },
+            "group": "out",
+            "args": {
+              "y": 180,
+              "x": -95
+            }
+          }
+        ]
+      },
+      "attrs": {
+        "data": {
+          "isChecked": ""
+        },
+        "label": {
+          "text": "Condicional #3"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "type": "app.Conditional",
+      "z": 54,
+      "id": "9047ec99-4259-4f20-9d2c-cb9547202e03",
+      "size": {
+        "width": 72,
+        "height": 72
+      },
+      "position": {
+        "x": -6056,
+        "y": 1264
+      }
+    },
+    {
+      "type": "app.Link",
+      "version": "1",
+      "id": "1985d593-31f0-4ed3-baaf-d04bba647931",
+      "attrs": {},
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "source": {
+        "magnet": "portButton",
+        "port": "2febf9a3-0d49-4232-99fd-ad865b54af6a",
+        "id": "ebcf2e10-4ecd-4ea4-9745-f3ef7b8dc5e2"
+      },
+      "cellId": "I31QyejkAZZ1Vd5ID87j",
+      "target": {
+        "id": "55260f63-804b-4a37-ac89-34c9ce9f551b",
+        "magnet": "portBody",
+        "port": "46904b88-9079-46aa-b282-3cc2783ab192"
+      },
+      "z": -1
+    },
+    {
+      "type": "app.Message",
+      "version": "1",
+      "id": "ad1ec6d8-c4c4-4a2f-a625-acdb6fea0ef9",
+      "size": {
+        "height": 160.5,
+        "width": 400
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "0ff03d6f-b9dc-4c76-9263-6163f205b3bb"
+          },
+          {
+            "args": {
+              "x": 190,
+              "y": 160.5
+            },
+            "group": "out",
+            "id": "c754042b-9393-4826-a54e-43dd5b098a48"
+          }
+        ]
+      },
+      "position": {
+        "x": -5344,
+        "y": 40
+      },
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "label": {
+          "text": "Mensaje #3"
+        },
+        "data": {
+          "info": {
+            "buttonsChecked": false,
+            "isGeolocationChecked": false,
+            "isAddressChecked": true,
+            "file": "",
+            "type": "interactive_text",
+            "replacedText": "",
+            "buttonsCheck": false,
+            "imgCheck": false,
+            "location": {
+              "address": "",
+              "longitude": null,
+              "name": "",
+              "latitude": null
+            },
+            "platform": "whatsapp",
+            "text": "Por ahora puedo ayudarle con la compra de un vehículo Toyota o con el servicio de taller. ¿Cuál necesita?"
+          }
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "description": {
+          "replacedText": "Por ahora puedo ayudarle con la compra de un vehículo Toyota o con el servicio de taller. ¿Cuál necesita?",
+          "values": [],
+          "text": "Por ahora puedo ayudarle con la compra de un vehículo Toyota o con el servicio de taller. ¿Cuál necesita?"
+        }
+      },
+      "messageChanged": false,
+      "z": 10,
+      "cellId": "IYdhUoAG4tDI6SLZ2hWT",
+      "wasOpened": false
+    },
+    {
+      "z": -1,
+      "type": "app.Link",
+      "attrs": {},
+      "source": {
+        "port": "0a3e5e3a-52aa-40b8-b02e-3cf133c5c0ac",
+        "magnet": "portButton",
+        "id": "17118f72-8fd2-4a14-9a54-041776f1b8f8"
+      },
+      "target": {
+        "id": "9da27e76-8ee8-4b5f-a358-64495694c083",
+        "port": "593dd806-5500-4736-9052-e18bd3a86c65",
+        "magnet": "portBody"
+      },
+      "cellId": "J2BEABfIBeXOSS4OFV1K",
+      "id": "78b976e4-39a2-4c9e-8d51-b7b0e90a2823",
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "target": {
+        "id": "08cb5e3e-0684-4efe-89ce-23e0a217ef7c",
+        "port": "a891f9a4-4471-4d44-9e1b-6652d06816a3",
+        "magnet": "portBody"
+      },
+      "cellId": "LY8IBYB1qicHpMG5J50D",
+      "source": {
+        "port": "919adeab-dde8-4b4b-a0c3-bb1430a1bbc7",
+        "magnet": "portButton",
+        "id": "4ace2adf-c559-4224-854f-4a7558463619"
+      },
+      "z": -1,
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "id": "c9c4f0eb-b61b-4356-affe-984fc41a9ee0",
+      "attrs": {},
+      "type": "app.Link"
+    },
+    {
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "version": "1",
+      "wasOpened": false,
+      "type": "app.FlowchartEnd",
+      "position": {
+        "x": -8336,
+        "y": 2040
+      },
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #13"
+        }
+      },
+      "z": 36,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "7d55d2c0-ef53-40c0-ac59-0b6607e67111"
+          }
+        ]
+      },
+      "id": "1d8e8791-4212-4dc4-9641-f9d309aee472",
+      "cellId": "Lus0iS8y3O5g9QwV50GM"
+    },
+    {
+      "size": {
+        "height": 160.5,
+        "width": 400
+      },
+      "wasOpened": true,
+      "type": "app.Message",
+      "position": {
+        "x": -5776,
+        "y": 1688
+      },
+      "messageChanged": false,
+      "attrs": {
+        "data": {
+          "info": {
+            "isAddressChecked": true,
+            "type": "interactive_text",
+            "platform": "whatsapp",
+            "file": "",
+            "isGeolocationChecked": false,
+            "location": {
+              "address": "",
+              "longitude": null,
+              "latitude": null,
+              "name": ""
+            },
+            "imgCheck": false,
+            "text": "Tuvimos un inconveniente técnico al agendar su cita. Por favor, escríbanos nuevamente en unos minutos.",
+            "buttonsChecked": false,
+            "buttonsCheck": false,
+            "replacedText": ""
+          }
+        },
+        "label": {
+          "text": "Mensaje #18"
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "description": {
+          "text": "Tuvimos un inconveniente técnico al agendar su cita. Por favor, escríbanos nuevamente en unos minutos.",
+          "replacedText": "Tuvimos un inconveniente técnico al agendar su cita. Por favor, escríbanos nuevamente en unos minutos.",
+          "values": []
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "e2cab0e4-c9e1-4f3e-b92d-019b15eb8de8"
+          },
+          {
+            "args": {
+              "x": 190,
+              "y": 160.5
+            },
+            "group": "out",
+            "id": "18b8a195-0dc2-468a-9696-de03c43ffdc7"
+          }
+        ]
+      },
+      "z": 56,
+      "id": "068f5bb1-09e2-4278-9481-e79c51c83766",
+      "cellId": "MKvu9Zlbk6AnBZGTxO0X"
+    },
+    {
+      "cellId": "N3WwSt3h1nv2XTuezbzq",
+      "wasOpened": false,
+      "attrs": {
+        "description": {
+          "replacedText": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+          "text": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+          "values": []
+        },
+        "data": {
+          "info": {
+            "buttonsCheck": false,
+            "replacedText": "",
+            "isAddressChecked": true,
+            "location": {
+              "name": "",
+              "latitude": null,
+              "address": "",
+              "longitude": null
+            },
+            "imgCheck": false,
+            "platform": "whatsapp",
+            "type": "interactive_text",
+            "buttonsChecked": false,
+            "file": "",
+            "text": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+            "isGeolocationChecked": false
+          }
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "label": {
+          "text": "Mensaje #13"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "77182a12-5997-4319-83a7-fcff4da5f158"
+          },
+          {
+            "id": "4eb615e1-bbcc-423c-bb98-c57086a9f6ad",
+            "args": {
+              "x": 190,
+              "y": 160.5
+            },
+            "group": "out"
+          }
+        ]
+      },
+      "z": 43,
+      "position": {
+        "x": -7656,
+        "y": 2448
+      },
+      "size": {
+        "width": 400,
+        "height": 160.5
+      },
+      "messageChanged": false,
+      "id": "5594589d-c454-4bbd-b12d-b0e3cf725c71",
+      "version": "1",
+      "type": "app.Message"
+    },
+    {
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "version": "1",
+      "type": "app.Link",
+      "target": {
+        "magnet": "portBody",
+        "id": "ebcf2e10-4ecd-4ea4-9745-f3ef7b8dc5e2",
+        "port": "206f2932-dc43-4774-a503-2d5c28417775"
+      },
+      "cellId": "NHhDjSCznlEyJMvw560Y",
+      "source": {
+        "magnet": "portButton",
+        "id": "73efaefb-a962-4774-b7fe-677fb1682f7d",
+        "port": "edb52152-9930-43bc-b5a5-78ce61535dbc"
+      },
+      "z": -1,
+      "attrs": {},
+      "id": "c05fc2f9-fd27-444c-a192-bbdc1ebab62e"
+    },
+    {
+      "z": 14,
+      "cellId": "ODMaWKsE2fGwLCiKm1kU",
+      "position": {
+        "x": -5180,
+        "y": 370.5
+      },
+      "id": "915939af-a58c-4ca7-8242-34887613fb7e",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #4"
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "id": "677a6b97-3c09-4941-9ebf-ace7e92319d2",
+            "group": "in"
+          }
+        ]
+      },
+      "version": "1",
+      "wasOpened": false,
+      "size": {
+        "width": 48,
+        "height": 48
+      },
+      "type": "app.FlowchartEnd"
+    },
+    {
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "attrs": {},
+      "source": {
+        "port": "affe7ead-1c10-44b0-a27a-3cb8be6802f2",
+        "magnet": "portButton",
+        "id": "19997eee-5f08-4d15-8bc0-1a2c93d0dda9"
+      },
+      "cellId": "OaUFlNXFRdqgdxd6k2Ls",
+      "target": {
+        "id": "ad1ec6d8-c4c4-4a2f-a625-acdb6fea0ef9",
+        "port": "0ff03d6f-b9dc-4c76-9263-6163f205b3bb",
+        "magnet": "portBody"
+      },
+      "type": "app.Link",
+      "version": "1",
+      "z": -1,
+      "id": "61df8596-97bf-44f7-be7a-beea52603ca3"
+    },
+    {
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "attrs": {
+        "data": {
+          "isChecked": ""
+        },
+        "label": {
+          "text": "Condicional #1"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "id": "46904b88-9079-46aa-b282-3cc2783ab192",
+            "group": "in"
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": 175
+            },
+            "attrs": {
+              "portLabel": {
+                "fill": "#52525C",
+                "text": "Otro",
+                "fontWeight": 500
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portBody": {
+                "fill": "#FFF4EE",
+                "strokeWidth": 1,
+                "rx": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "ry": 14
+              }
+            },
+            "id": "af3c5f79-bccf-4248-a41a-1e35b929ca9b",
+            "category": "other",
+            "group": "default"
+          },
+          {
+            "group": "out",
+            "attrs": {
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "selectedOption": {
+                "valueType": "",
+                "category": "equal_to",
+                "text": "es igual que",
+                "defaultValueTracked": true,
+                "conditions": [
+                  {
+                    "operator": {
+                      "regex": false,
+                      "expression": "===",
+                      "atomMagic": true,
+                      "type": "text",
+                      "originalText": "es igual que",
+                      "category": "equal_to",
+                      "text": "es igual que"
+                    },
+                    "valueType": {
+                      "name": "crm_busqueda_status",
+                      "category": "flow_field",
+                      "isFlowField": true,
+                      "originComponent": "http",
+                      "displayModules": [],
+                      "type": "dynamic",
+                      "id": "7cf83b76-160e-46d1-ba8f-eaf03f0258e1",
+                      "keyword": "crm_busqueda_status"
+                    },
+                    "value": {
+                      "body": "success",
+                      "values": []
+                    },
+                    "condition": null
+                  }
+                ],
+                "value": "",
+                "currentSchedule": "",
+                "title": "Contacto existe",
+                "selectedResult": "informationField",
+                "httpComponent": ""
+              },
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "ry": 14,
+                "fill": "#F4F7FA",
+                "rx": 14,
+                "strokeWidth": 1
+              },
+              "portRemoveButton": {
+                "display": "unset"
+              },
+              "portLabel": {
+                "fontWeight": 500,
+                "text": "es igual que Contacto existe",
+                "fill": "#52525C"
+              }
+            },
+            "args": {
+              "x": -95,
+              "y": 180
+            },
+            "id": "300f6573-cef4-42d8-8602-eb3d5b215ed9"
+          }
+        ]
+      },
+      "position": {
+        "y": 1384,
+        "x": -7952
+      },
+      "cellId": "PpdCLTvO5WH4OfRFJYSe",
+      "type": "app.Conditional",
+      "version": "1",
+      "z": 34,
+      "wasOpened": false,
+      "id": "55260f63-804b-4a37-ac89-34c9ce9f551b"
+    },
+    {
+      "type": "app.Link",
+      "id": "11e2d900-8361-4006-a37d-50f63cbc3e1d",
+      "z": -1,
+      "version": "1",
+      "attrs": {},
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          }
+        }
+      ],
+      "target": {
+        "id": "7dcb6728-c764-4853-9ab2-7f33606d803e",
+        "magnet": "portBody",
+        "port": "c997bff2-ceb8-45f2-88c8-7b6e1d602e7b"
+      },
+      "cellId": "QGZLbkIdPYnXgh6cWBV5",
+      "source": {
+        "id": "8a5950f3-0419-48a6-880e-8dc79505f13c",
+        "magnet": "portButton",
+        "port": "30dd78bd-0db8-4483-9805-ddb0a6483be4"
+      }
+    },
+    {
+      "id": "b40bffd7-7c9d-4015-99ae-a2453f50be24",
+      "z": -1,
+      "version": "1",
+      "cellId": "R3OBz34Bweq5iGftovAd",
+      "target": {
+        "magnet": "portBody",
+        "port": "b1d5a26b-ae48-47ff-8506-6b008459ab14",
+        "id": "d2397d18-b655-4808-b575-5f4e2dc8bad5"
+      },
+      "source": {
+        "id": "73efaefb-a962-4774-b7fe-677fb1682f7d",
+        "port": "fe921881-9a4b-4f68-8d64-86f4f196206f",
+        "magnet": "portButton"
+      },
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          }
+        }
+      ],
+      "attrs": {},
+      "type": "app.Link"
+    },
+    {
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #17"
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "id": "385967b7-5e9e-48b6-9143-fcc79736acb3",
+            "group": "in"
+          }
+        ]
+      },
+      "size": {
+        "width": 48,
+        "height": 48
+      },
+      "cellId": "RLWAKWx1fl9kjv35NMGp",
+      "id": "ce10d2db-280d-471d-a479-03fb509f9aac",
+      "type": "app.FlowchartEnd",
+      "position": {
+        "x": -7304,
+        "y": 2256
+      },
+      "version": "1",
+      "z": 46,
+      "wasOpened": false
+    },
+    {
+      "id": "c6d57eb9-da34-4fc3-8d66-8005b0ebc067",
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          }
+        }
+      ],
+      "type": "app.Link",
+      "cellId": "Rftde4uJa31zvgeW38kk",
+      "target": {
+        "port": "9dfc3667-002f-48e0-9904-e315f2b7d6a3",
+        "id": "56091ebb-c416-49a6-a6fb-d86acc16886a",
+        "magnet": "portBody"
+      },
+      "source": {
+        "port": "1c4a0909-e37d-4b48-8f90-42cb75427594",
+        "id": "17118f72-8fd2-4a14-9a54-041776f1b8f8",
+        "magnet": "portButton"
+      },
+      "attrs": {},
+      "z": -1,
+      "version": "1"
+    },
+    {
+      "source": {
+        "magnet": "portButton",
+        "port": "90a7be0a-4fd5-45ba-92c5-2134ce0c9589",
+        "id": "17118f72-8fd2-4a14-9a54-041776f1b8f8"
+      },
+      "target": {
+        "id": "b9ffcf2f-dad0-4058-b2d9-82dce5068b59",
+        "magnet": "portBody",
+        "port": "9304b34d-7c2f-4fca-9c29-48ea63fbb749"
+      },
+      "cellId": "S4L4OoOESpbuURs0eeiJ",
+      "id": "b3914669-d94b-4e9a-add5-57f478373c26",
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "attrs": {},
+      "z": -1,
+      "type": "app.Link",
+      "version": "1"
+    },
+    {
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "type": "app.HttpV2",
+      "wasOpened": false,
+      "id": "8a5950f3-0419-48a6-880e-8dc79505f13c",
+      "cellId": "SFPs6V1K54tNJ9LFVWBw",
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "label": {
+          "text": "Petición HTTP #3"
+        },
+        "http": {
+          "data": {
+            "headers": [
+              {
+                "replaced": {
+                  "body": "application/json",
+                  "values": []
+                },
+                "hasVariables": false,
+                "isSensitive": false,
+                "key": "Content-Type",
+                "value": "application/json",
+                "id": "0c346a3c-eba3-4f1c-a423-9359e497b0b5"
+              }
+            ],
+            "url": "<CRM_API_ENDPOINT>",
+            "timeoutSeconds": 20,
+            "body": {
+              "data": {
+                "Modelo de interés": "{{client.custom_modelo_de_interes}}",
+                "Correo": "{{client.email}}",
+                "Marca": "{{client.custom_marca_de_interes}}",
+                "Nombre": "{{client.first_name}}",
+                "Apellido": "{{client.last_name}}",
+                "Teléfono": "{{client.custom_telefono_contacto}}",
+                "Tiempo estimado de compra": "{{client.custom_tiempo_estimado_de_compra}}"
+              },
+              "action": "create",
+              "token": "{{flow_field.crm_token}}"
+            },
+            "responseConditions": [
+              {
+                "range": "200-299",
+                "id": "success",
+                "isValid": true,
+                "type": "success",
+                "hasRangeError": false
+              },
+              {
+                "id": "failure",
+                "hasRangeError": false,
+                "range": "400-599",
+                "type": "failure",
+                "isValid": true
+              }
+            ],
+            "method": "POST"
+          },
+          "optionalFields": {
+            "url": {
+              "values": [],
+              "content": "",
+              "replaced": "<CRM_API_ENDPOINT>"
+            },
+            "headers": {},
+            "body": {
+              "replaced": "",
+              "values": [],
+              "content": "{\n  \"action\": \"create\",\n  \"token\": \"{{flow_field.crm_token}}\",\n  \"data\": {\n    \"Nombre\": \"{{client.first_name}}\",\n    \"Apellido\": \"{{client.last_name}}\",\n    \"Correo\": \"{{client.email}}\",\n    \"Teléfono\": \"{{client.custom_telefono_contacto}}\",\n    \"Marca\": \"{{client.custom_marca_de_interes}}\",\n    \"Modelo de interés\": \"{{client.custom_modelo_de_interes}}\",\n    \"Tiempo estimado de compra\": \"{{client.custom_tiempo_estimado_de_compra}}\"\n  }\n}"
+            }
+          },
+          "fieldsToSave": [
+            {
+              "isFocus": false,
+              "nameError": false,
+              "responseKey": "status",
+              "optionalField": {
+                "reservedNames": [],
+                "category": "predefined_field",
+                "readOnly": false,
+                "type": "Texto",
+                "id": "uOQVOy60yZJVfRjtx87s",
+                "length": 100,
+                "description": "Modelo Toyota que le interesa al cliente. Ej: Hilux, Corolla, Fortuner, Yaris Cross",
+                "createdAt": {
+                  "_nanoseconds": 500000000,
+                  "_seconds": 1790091207
+                },
+                "name": "Modelo de Interés",
+                "active": true,
+                "securityConfig": {
+                  "active": false
+                },
+                "updatedAt": {
+                  "_nanoseconds": 344000000,
+                  "_seconds": 1790171533
+                },
+                "required": false,
+                "isSystem": false,
+                "keyword": "custom_modelo_de_interes"
+              },
+              "id": "78d02786-a8e7-4be5-8e83-382cd005df24",
+              "fieldType": "dynamic",
+              "dynamicField": {
+                "keyword": "crm_creacion_status",
+                "name": "crm_creacion_status",
+                "id": "90f1b1d2-738d-4dd5-8a5a-ddf1de8a373c",
+                "isFlowField": true,
+                "category": "flow_field",
+                "displayModules": [],
+                "type": "dynamic",
+                "originComponent": "http"
+              }
+            },
+            {
+              "responseKey": "generatedId",
+              "fieldType": "dynamic",
+              "dynamicField": {
+                "originComponent": "http",
+                "category": "flow_field",
+                "displayModules": [],
+                "name": "crm_id_nuevo",
+                "isFlowField": true,
+                "id": "96e8c624-e560-44d6-97d6-54b57ea7f36f",
+                "keyword": "crm_id_nuevo",
+                "type": "dynamic"
+              },
+              "optionalField": {
+                "description": "Modelo Toyota que le interesa al cliente. Ej: Hilux, Corolla, Fortuner, Yaris Cross",
+                "readOnly": false,
+                "category": "predefined_field",
+                "id": "uOQVOy60yZJVfRjtx87s",
+                "reservedNames": [],
+                "type": "Texto",
+                "keyword": "custom_modelo_de_interes",
+                "updatedAt": {
+                  "_nanoseconds": 344000000,
+                  "_seconds": 1790171533
+                },
+                "name": "Modelo de Interés",
+                "isSystem": false,
+                "required": false,
+                "active": true,
+                "length": 100,
+                "createdAt": {
+                  "_nanoseconds": 500000000,
+                  "_seconds": 1790091207
+                },
+                "securityConfig": {
+                  "active": false
+                }
+              },
+              "isFocus": false,
+              "nameError": false,
+              "id": "6df5ef4e-1eae-4a73-9c32-6061f57b34dc"
+            }
+          ],
+          "authConfig": {
+            "type": "NONE",
+            "enabled": false
+          }
+        },
+        "config": {
+          "handleResponse": true,
+          "customTimeout": true,
+          "body": true,
+          "handleSave": true,
+          "headers": true
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "id": "5e2a2fca-5c40-43ef-9bcd-20e7d5f61549",
+            "group": "in"
+          },
+          {
+            "id": "d3bbbf30-67ec-4787-8c06-1bc7a299dd08",
+            "args": {
+              "y": 180,
+              "x": 175
+            },
+            "group": "default",
+            "category": "failure",
+            "attrs": {
+              "portBody": {
+                "strokeWidth": 1,
+                "rx": 14,
+                "ry": 14,
+                "fill": "#F4F7FA",
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "portLabel": {
+                "x": 0,
+                "fill": "#52525C",
+                "text": "Error",
+                "textAnchor": "middle",
+                "fontWeight": 500
+              }
+            }
+          },
+          {
+            "id": "30dd78bd-0db8-4483-9805-ddb0a6483be4",
+            "attrs": {
+              "portLabel": {
+                "fill": "#52525C",
+                "fontWeight": 500,
+                "textAnchor": "middle",
+                "text": "Éxito",
+                "x": 0
+              },
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "fill": "#F4F7FA",
+                "rx": 14,
+                "strokeWidth": 1,
+                "ry": 14
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              }
+            },
+            "category": "success",
+            "group": "default",
+            "args": {
+              "y": 180,
+              "x": -95
+            }
+          }
+        ]
+      },
+      "z": 39,
+      "version": "1",
+      "position": {
+        "x": -7768,
+        "y": 1792
+      }
+    },
+    {
+      "cellId": "TZXz2fXynVVjWiHhBUuo",
+      "wasOpened": false,
+      "id": "120f70c1-7af8-4f56-90a3-01fad01f122c",
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "cffe6f5a-dd8a-4471-9750-0b142fc38d61"
+          },
+          {
+            "group": "out",
+            "id": "a6353927-8b17-476e-a2e9-d7c8d905d644",
+            "args": {
+              "y": 160.5,
+              "x": 190
+            }
+          }
+        ]
+      },
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "data": {
+          "info": {
+            "buttonsChecked": false,
+            "isGeolocationChecked": false,
+            "isAddressChecked": true,
+            "text": "Disculpe, no pudimos completar el registro de sus datos en este momento. Por favor, escríbanos nuevamente en unos minutos.",
+            "file": "",
+            "type": "interactive_text",
+            "location": {
+              "address": "",
+              "name": "",
+              "latitude": null,
+              "longitude": null
+            },
+            "imgCheck": false,
+            "buttonsCheck": false,
+            "replacedText": "",
+            "platform": "whatsapp"
+          }
+        },
+        "label": {
+          "text": "Mensaje #8"
+        },
+        "description": {
+          "text": "Disculpe, no pudimos completar el registro de sus datos en este momento. Por favor, escríbanos nuevamente en unos minutos.",
+          "replacedText": "Disculpe, no pudimos completar el registro de sus datos en este momento. Por favor, escríbanos nuevamente en unos minutos.",
+          "values": []
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        }
+      },
+      "z": 26,
+      "position": {
+        "x": -7000,
+        "y": 864
+      },
+      "type": "app.Message",
+      "messageChanged": false,
+      "version": "1",
+      "size": {
+        "height": 160.5,
+        "width": 400
+      }
+    },
+    {
+      "position": {
+        "y": 1184,
+        "x": -5840
+      },
+      "cellId": "Tgzl4C54RtFuXKWz9LIk",
+      "messageChanged": false,
+      "size": {
+        "width": 400,
+        "height": 160.5
+      },
+      "wasOpened": true,
+      "attrs": {
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "data": {
+          "info": {
+            "isGeolocationChecked": false,
+            "isAddressChecked": true,
+            "replacedText": "",
+            "buttonsCheck": false,
+            "text": "Tuvimos un inconveniente técnico al agendar su cita. Por favor, escríbanos nuevamente en unos minutos.",
+            "buttonsChecked": false,
+            "file": "",
+            "location": {
+              "address": "",
+              "latitude": null,
+              "name": "",
+              "longitude": null
+            },
+            "imgCheck": false,
+            "type": "interactive_text",
+            "platform": "whatsapp"
+          }
+        },
+        "description": {
+          "values": [],
+          "replacedText": "Tuvimos un inconveniente técnico al agendar su cita. Por favor, escríbanos nuevamente en unos minutos.",
+          "text": "Tuvimos un inconveniente técnico al agendar su cita. Por favor, escríbanos nuevamente en unos minutos."
+        },
+        "label": {
+          "text": "Mensaje #19"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "type": "app.Message",
+      "id": "08cb5e3e-0684-4efe-89ce-23e0a217ef7c",
+      "ports": {
+        "items": [
+          {
+            "id": "a891f9a4-4471-4d44-9e1b-6652d06816a3",
+            "group": "in"
+          },
+          {
+            "args": {
+              "y": 160.5,
+              "x": 190
+            },
+            "group": "out",
+            "id": "909ef01f-b153-499d-bafb-861146fdaf21"
+          }
+        ]
+      },
+      "z": 59
+    },
+    {
+      "attrs": {},
+      "type": "app.Link",
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "version": "1",
+      "cellId": "VCzzputo0cdhmvbay3w9",
+      "target": {
+        "id": "73efaefb-a962-4774-b7fe-677fb1682f7d",
+        "magnet": "portBody",
+        "port": "4f4f30b9-08cb-4650-b882-9ec11278534e"
+      },
+      "source": {
+        "id": "ab1a1fe8-8c58-434f-b725-74f225bc3b7f",
+        "magnet": "portButton",
+        "port": "f613e75d-3b6b-4d57-9ba3-684b82906fa5"
+      },
+      "z": -1,
+      "id": "1e77a321-f5d2-4403-9599-2daa41b838b9"
+    },
+    {
+      "type": "app.Link",
+      "version": "1",
+      "attrs": {},
+      "z": -1,
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "source": {
+        "magnet": "portButton",
+        "id": "f7821b0e-a227-497a-ae1a-fac7d8d9126b",
+        "port": "61e1c788-37f0-40af-810b-d6bad9868f84"
+      },
+      "cellId": "W7PJVS8L3jcvSGgEUMfQ",
+      "target": {
+        "id": "19997eee-5f08-4d15-8bc0-1a2c93d0dda9",
+        "magnet": "portBody",
+        "port": "3bb55b2a-d2b2-490e-96b8-079ac10ddc61"
+      },
+      "id": "de204356-6f6c-4389-bf2b-b382cd64f598"
+    },
+    {
+      "type": "app.FlowchartEnd",
+      "position": {
+        "y": 1394.5,
+        "x": -5204
+      },
+      "wasOpened": false,
+      "cellId": "WCzlHHpnfyeRdrPrjlcG",
+      "id": "daa723e0-95d1-486d-bcac-14b21ba1c6a4",
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "f163a0a9-016e-47ce-ae96-2da468c55b12"
+          }
+        ]
+      },
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #19"
+        }
+      },
+      "z": 51
+    },
+    {
+      "cellId": "Y5mvD5x5zgTBhHne82X0",
+      "wasOpened": false,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "0327be43-1c85-4a3f-9921-125760444e03"
+          }
+        ]
+      },
+      "id": "6b388c7b-6752-42e4-b1c4-2d1f670459ec",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #23"
+        }
+      },
+      "type": "app.FlowchartEnd",
+      "position": {
+        "y": 1400,
+        "x": -5496
+      },
+      "z": 60,
+      "size": {
+        "width": 48,
+        "height": 48
+      }
+    },
+    {
+      "version": "1",
+      "z": 28,
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "wasOpened": false,
+      "id": "1b71a2a6-515a-442b-812d-a449f08a25ff",
+      "cellId": "Yxryq7mUumPxkLzjGp18",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #10"
+        }
+      },
+      "position": {
+        "x": -6764,
+        "y": 1194.5
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "402ac896-9026-4201-9a93-5a52b0ca085c"
+          }
+        ]
+      },
+      "type": "app.FlowchartEnd"
+    },
+    {
+      "version": "1",
+      "z": 23,
+      "size": {
+        "width": 72,
+        "height": 72
+      },
+      "wasOpened": false,
+      "id": "b9ffcf2f-dad0-4058-b2d9-82dce5068b59",
+      "cellId": "Zm5jYDcuiGoekYGbRy6O",
+      "attrs": {
+        "data": {
+          "value": "Toyota",
+          "setField": true,
+          "currentVariableName": {
+            "type": "Texto",
+            "updatedAt": {
+              "_seconds": 1790091207,
+              "_nanoseconds": 462000000
+            },
+            "isSystem": false,
+            "required": false,
+            "keyword": "custom_marca_de_interes",
+            "category": "predefined_field",
+            "description": "Marca o marcas en las que el usuario está interesado (Ej: Toyota, Ford, BMW).",
+            "active": true,
+            "createdAt": {
+              "_nanoseconds": 462000000,
+              "_seconds": 1790091207
+            },
+            "id": "6yPwpCcsZuOSETwfpiEw",
+            "length": 100,
+            "name": "Marca de Interés"
+          },
+          "fieldType": "predefinedField"
+        },
+        "label": {
+          "text": "Guardar campo #1"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "position": {
+        "y": 296,
+        "x": -6840
+      },
+      "type": "app.SaveField",
+      "ports": {
+        "items": [
+          {
+            "id": "9304b34d-7c2f-4fca-9c29-48ea63fbb749",
+            "group": "in"
+          },
+          {
+            "group": "default",
+            "attrs": {
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1
+              }
+            },
+            "id": "b3f5e2cd-b356-4c88-8c96-9c4a7e864082",
+            "category": "other"
+          }
+        ]
+      }
+    },
+    {
+      "target": {
+        "id": "f3e54d32-267f-4273-8d52-3c083d4d92df",
+        "port": "ae8fabf9-36a5-4853-b07b-5cfbd28a1b2e",
+        "magnet": "portBody"
+      },
+      "cellId": "ahPq2VzDPXAHFX6uTzOi",
+      "source": {
+        "port": "667e9573-8187-4803-92f4-e374ef4ce040",
+        "id": "7031fc77-5482-442d-82ff-2a37f1b9a6cd",
+        "magnet": "portButton"
+      },
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "id": "7bf85337-2d2d-446b-8cb9-7b42abbda79e",
+      "attrs": {},
+      "type": "app.Link",
+      "z": -1
+    },
+    {
+      "attrs": {
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "label": {
+          "text": "Mensaje #14"
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "data": {
+          "info": {
+            "buttonsChecked": false,
+            "file": "",
+            "isGeolocationChecked": false,
+            "type": "interactive_text",
+            "text": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+            "buttonsCheck": false,
+            "replacedText": "",
+            "platform": "whatsapp",
+            "location": {
+              "longitude": null,
+              "address": "",
+              "name": "",
+              "latitude": null
+            },
+            "imgCheck": false,
+            "isAddressChecked": true
+          }
+        },
+        "description": {
+          "replacedText": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+          "text": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+          "values": []
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "072cf50b-758a-47d1-8dac-eeec44f84270"
+          },
+          {
+            "group": "out",
+            "args": {
+              "y": 160.5,
+              "x": 190
+            },
+            "id": "2f626f90-9bfe-49a4-b51d-763c236a4cbf"
+          }
+        ]
+      },
+      "size": {
+        "height": 160.5,
+        "width": 400
+      },
+      "cellId": "bIvyZqlN71k6aBhsXwUP",
+      "id": "5566caab-e182-46ba-a9e8-19cc1e0cfee4",
+      "wasOpened": false,
+      "type": "app.Message",
+      "z": 45,
+      "position": {
+        "y": 2034,
+        "x": -7768
+      },
+      "messageChanged": false,
+      "version": "1"
+    },
+    {
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "source": {
+        "id": "5a9c5ebb-a351-46b6-a9f7-bd177668e5ae",
+        "port": "afa158bb-6dc6-4e77-a688-aed359ee0b6c",
+        "magnet": "portButton"
+      },
+      "cellId": "deKgJzf9toa2fZKuLgwo",
+      "target": {
+        "port": "7d55d2c0-ef53-40c0-ac59-0b6607e67111",
+        "magnet": "portBody",
+        "id": "1d8e8791-4212-4dc4-9641-f9d309aee472"
+      },
+      "attrs": {},
+      "type": "app.Link",
+      "z": -1,
+      "version": "1",
+      "id": "fbc1ab9d-d8d0-4ac2-8e33-ac5c9492ba57"
+    },
+    {
+      "z": 52,
+      "size": {
+        "width": 48,
+        "height": 48
+      },
+      "id": "57717320-c2fa-4fe5-a3a8-47afa924f4f1",
+      "wasOpened": false,
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #20"
+        }
+      },
+      "cellId": "dgGhZx4Ll8GVHfkhVXBv",
+      "position": {
+        "x": -5008,
+        "y": 776
+      },
+      "type": "app.FlowchartEnd",
+      "ports": {
+        "items": [
+          {
+            "id": "1dac1fbb-2d36-4786-817e-486115b65afb",
+            "group": "in"
+          }
+        ]
+      }
+    },
+    {
+      "messageChanged": false,
+      "z": 18,
+      "version": "1",
+      "size": {
+        "width": 400,
+        "height": 180.49998474121094
+      },
+      "id": "56091ebb-c416-49a6-a6fb-d86acc16886a",
+      "wasOpened": false,
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "description": {
+          "values": [],
+          "replacedText": "Puedo ayudarle con información sobre los vehículos Toyota de MotorTech: modelos, precios, motor, equipamiento y más. ¿Qué modelo le interesa?",
+          "text": "Puedo ayudarle con información sobre los vehículos Toyota de MotorTech: modelos, precios, motor, equipamiento y más. ¿Qué modelo le interesa?"
+        },
+        "data": {
+          "info": {
+            "file": "",
+            "platform": "whatsapp",
+            "isGeolocationChecked": false,
+            "imgCheck": false,
+            "location": {
+              "longitude": null,
+              "name": "",
+              "latitude": null,
+              "address": ""
+            },
+            "replacedText": "",
+            "buttonsCheck": false,
+            "type": "interactive_text",
+            "buttonsChecked": false,
+            "text": "Puedo ayudarle con información sobre los vehículos Toyota de MotorTech: modelos, precios, motor, equipamiento y más. ¿Qué modelo le interesa?",
+            "isAddressChecked": true
+          }
+        },
+        "label": {
+          "text": "Mensaje #6"
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        }
+      },
+      "cellId": "dijL83xzmSqPepYIhD8X",
+      "position": {
+        "x": -6344,
+        "y": 488
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "9dfc3667-002f-48e0-9904-e315f2b7d6a3"
+          },
+          {
+            "group": "out",
+            "args": {
+              "x": 190,
+              "y": 180.49998474121094
+            },
+            "id": "4e7956f8-a9f3-4276-825b-8531714a7a24"
+          }
+        ]
+      },
+      "type": "app.Message"
+    },
+    {
+      "version": "1",
+      "z": -1,
+      "id": "842b4877-d9cf-473d-9a34-7019ac81f593",
+      "source": {
+        "magnet": "portButton",
+        "id": "7dcb6728-c764-4853-9ab2-7f33606d803e",
+        "port": "e07a68e1-1ab6-4265-8dc2-b41b9649e9a2"
+      },
+      "cellId": "dtWiUNSaBwyLmb9BIB1O",
+      "target": {
+        "id": "4cfbef06-f0c4-4a4e-8192-8ec34901a297",
+        "port": "735c9053-ee51-41ba-8dbe-b06285a9f8b6",
+        "magnet": "portBody"
+      },
+      "attrs": {},
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "type": "app.Link"
+    },
+    {
+      "version": "1",
+      "position": {
+        "y": 1082,
+        "x": -7352
+      },
+      "type": "app.Message",
+      "size": {
+        "height": 160.5,
+        "width": 400
+      },
+      "z": 31,
+      "messageChanged": false,
+      "wasOpened": false,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "b1d5a26b-ae48-47ff-8506-6b008459ab14"
+          },
+          {
+            "group": "out",
+            "args": {
+              "y": 160.5,
+              "x": 190
+            },
+            "id": "2133568c-ae70-4401-9903-f76eca13004d"
+          }
+        ]
+      },
+      "id": "d2397d18-b655-4808-b575-5f4e2dc8bad5",
+      "attrs": {
+        "description": {
+          "text": "   Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+          "values": [],
+          "replacedText": "   Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos."
+        },
+        "label": {
+          "text": "Mensaje #9"
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "data": {
+          "info": {
+            "text": "   Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+            "buttonsCheck": false,
+            "replacedText": "",
+            "type": "interactive_text",
+            "buttonsChecked": false,
+            "file": "",
+            "platform": "whatsapp",
+            "isAddressChecked": true,
+            "isGeolocationChecked": false,
+            "imgCheck": false,
+            "location": {
+              "address": "",
+              "longitude": null,
+              "latitude": null,
+              "name": ""
+            }
+          }
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "cellId": "eFFYtn27c1NmOsSeYP1Z"
+    },
+    {
+      "version": "1",
+      "type": "app.Link",
+      "id": "1f2e1de4-cc6a-48b8-a737-b9f8acd00cb8",
+      "attrs": {},
+      "z": -1,
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "cellId": "f12mquNjBDH8Yva7taGG",
+      "target": {
+        "port": "eeab6a54-44f6-4287-8b26-d578952549a2",
+        "magnet": "portBody",
+        "id": "5a9c5ebb-a351-46b6-a9f7-bd177668e5ae"
+      },
+      "source": {
+        "port": "300f6573-cef4-42d8-8602-eb3d5b215ed9",
+        "magnet": "portButton",
+        "id": "55260f63-804b-4a37-ac89-34c9ce9f551b"
+      }
+    },
+    {
+      "id": "99f43557-0602-4112-8ead-d1fe50c4e410",
+      "z": -1,
+      "source": {
+        "id": "9047ec99-4259-4f20-9d2c-cb9547202e03",
+        "port": "34406eda-419f-4f2b-8630-1537270c53fd",
+        "magnet": "portButton"
+      },
+      "target": {
+        "id": "068f5bb1-09e2-4278-9481-e79c51c83766",
+        "magnet": "portBody",
+        "port": "e2cab0e4-c9e1-4f3e-b92d-019b15eb8de8"
+      },
+      "cellId": "f1D4MSoUSzlTwFRVHxLM",
+      "attrs": {},
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "type": "app.Link"
+    },
+    {
+      "z": -1,
+      "cellId": "ffpG7oWV45S6zvSt7kFo",
+      "target": {
+        "port": "afcf713a-486d-4252-9c71-1f69c1371d1b",
+        "magnet": "portBody",
+        "id": "46265949-7a6f-4b79-abb7-e808a9d31516"
+      },
+      "source": {
+        "magnet": "portButton",
+        "id": "d2397d18-b655-4808-b575-5f4e2dc8bad5",
+        "port": "2133568c-ae70-4401-9903-f76eca13004d"
+      },
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "id": "b7dedb52-05dd-4057-b304-841f7efa79a5",
+      "type": "app.Link",
+      "version": "1",
+      "attrs": {}
+    },
+    {
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "version": "1",
+      "z": -1,
+      "type": "app.Link",
+      "source": {
+        "id": "17118f72-8fd2-4a14-9a54-041776f1b8f8",
+        "magnet": "portButton",
+        "port": "1250d360-3a5b-4176-be46-46f22562d80c"
+      },
+      "cellId": "hhCC4ALyObj4SggkIAFA",
+      "target": {
+        "id": "936bf98b-d866-45e6-8d20-6a765daf032e",
+        "magnet": "portBody",
+        "port": "66d5d28c-a776-4c6c-9e53-da2a0ce9f400"
+      },
+      "attrs": {},
+      "id": "1f9e8491-a2c6-4a6a-bebc-96f8b2eadf09"
+    },
+    {
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "version": "1",
+      "type": "app.Link",
+      "target": {
+        "magnet": "portBody",
+        "port": "097c15a8-eb96-4db5-a450-1a4d80e92461",
+        "id": "ab1a1fe8-8c58-434f-b725-74f225bc3b7f"
+      },
+      "cellId": "ie6LmzXEj1f4GXrydpID",
+      "source": {
+        "id": "b9ffcf2f-dad0-4058-b2d9-82dce5068b59",
+        "magnet": "portButton",
+        "port": "b3f5e2cd-b356-4c88-8c96-9c4a7e864082"
+      },
+      "attrs": {},
+      "z": -1,
+      "id": "aaae8115-a89c-40cf-8734-caa8f72c7614"
+    },
+    {
+      "cellId": "iwVpQM62yafhRmqD9d5w",
+      "z": 15,
+      "wasOpened": false,
+      "attrs": {
+        "label": {
+          "text": "Smarton #2"
+        },
+        "buttons": {
+          "current": []
+        },
+        "data": {
+          "genericModeCfg": {
+            "knowledge": [
+              {
+                "downloadUrl": "<KNOWLEDGE_BASE_FILE_URL>",
+                "size": 13141,
+                "updatedAt": "2026-09-22T23:33:14.000Z",
+                "name": "Base Conocimiento MotorTech.xlsx",
+                "description": "Catálogo oficial de vehículos Toyota de MotorTech Colombia. 10 modelos: Yaris Sedán, Yaris Cross HEV, Corolla, Corolla Cross HEV, Rush, Fortuner, Hilux, Land Cruiser Prado, Land Cruiser 300 GR-S e Hiace. Incluye precio en COP, motor, potencia, transmisión, consumo, capacidad, equipamiento, seguridad y uso recomendado de cada modelo.",
+                "id": "irECxSqTfPeWYCGxxKuA",
+                "type": "XLSX"
+              }
+            ],
+            "promptValue": {
+              "body": "Eres el asesor comercial virtual de MotorTech, concesionario oficial Toyota en Colombia. Atiendes por WhatsApp a clientes interesados en comprar un vehículo.\n\n# FUENTE DE INFORMACIÓN (REGLA MÁS IMPORTANTE)\n- Responde ÚNICAMENTE con la información de la base de conocimiento \"Base Conocimiento MotorTech\".\n- NUNCA uses conocimiento general sobre Toyota ni sobre el mercado, aunque lo conozcas.\n- Si un dato no está en la base (por ejemplo: dimensiones, colores, versiones, financiación, costos de mantenimiento, disponibilidad), dilo con claridad: \"Ese dato no lo tengo en la información oficial de MotorTech; un asesor puede confirmárselo\". No estimes ni completes con suposiciones.\n- Si la base describe el dato solo de forma cualitativa, sin cifra (ej.: alta capacidad de carga, alto torque, gran espacio interior), primero comunica lo que SÍ dice la información oficial y después aclara que la cifra exacta no está disponible y que un asesor puede confirmarla. Nunca digas que no tienes información si la base describe el dato de alguna forma.\n- Si la base usa \"~\" o \"aprox.\", comunícalo como valor aproximado.\n- Los precios son precios de referencia en Colombia (COP). Menciónalos tal como figuran.\n\n# NOMBRES DE MODELOS\nEl cliente puede nombrar los modelos de forma abreviada. Equivalencias:\n- \"Yaris\" = Yaris Sedán\n- \"Yaris Cross\" = Yaris Cross HEV\n- \"Corolla Cross\" = Corolla Cross HEV\n- \"Prado\" = Land Cruiser Prado\n- \"LC300\" o \"Land Cruiser 300\" = Land Cruiser 300 GR-S\n- Si dice solo \"Land Cruiser\", pregunta si se refiere a la Prado o a la 300 GR-S.\n- Si pregunta por un modelo que no está en la base, indica que no tienes información de ese modelo y menciona los modelos disponibles.\n\n# CÓMO RESPONDER\n- Si pide información general de un modelo, resume: tipo de vehículo, motor y potencia, transmisión, capacidad, equipamiento destacado, uso ideal y precio de referencia.\n- Si pregunta un dato puntual, responde ese dato primero y agrega solo el contexto útil.\n- Si pregunta para qué uso o perfil es un modelo, usa el uso indicado en la base; si no está explícito, deduce solo a partir de las características que sí figuran y aclara \"según sus características\".\n- En comparaciones, compara solo con datos de la base.\n- Mantén el contexto de la conversación: si el cliente hace una pregunta de seguimiento sin nombrar el modelo (ej.: \"¿y cuánto consume?\"), responde sobre el último modelo del que se habló.\n\n# ESTILO (WHATSAPP)\n- Trato de \"usted\", cordial y profesional.\n- Máximo 6 líneas. Usa *negrita* para el nombre del modelo y listas con guion para características.\n- Nunca menciones al cliente \"la base\", \"base de conocimiento\", \"documento\" ni \"archivo\". Refiérete siempre a \"la información oficial de MotorTech\". No pongas entre comillas los datos que entregas.\n- Sin saludar de nuevo si la conversación ya empezó.\n- La primera vez que des información general o el precio de un modelo, cierra preguntando: ¿Desea que le preparemos una *cotización* o prefiere agendar un *test drive*? En las preguntas de seguimiento sobre ese mismo modelo, responde sin volver a ofrecerlo. Si el cliente rechaza la oferta, sigue respondiendo sus dudas con normalidad.\n- Si el cliente acepta sin indicar cuál de las dos opciones prefiere (ej.: \"sí\", \"me interesa\", \"dale\"), pregúntale solamente: ¿Prefiere la *cotización* o el *test drive*?\n- Nunca digas que un asesor se comunicará con el cliente, ni confirmes cotizaciones, test drives o citas: de eso se encarga otro paso del proceso.\n- NO pidas datos personales (nombre, correo, teléfono). De eso se encarga otro paso del proceso.",
+              "values": []
+            },
+            "description": "Asesor comercial de MotorTech que responde preguntas sobre los vehículos Toyota del catálogo oficial en Colombia: modelos, precios de referencia, motor, potencia, capacidad, equipamiento y uso recomendado, usando solo la base de conocimiento.",
+            "topKActive": true,
+            "modelAI": {
+              "id": "gpt41",
+              "name": "GPT 4.1",
+              "provider": "OpenAI"
+            },
+            "topK": 10
+          },
+          "commonCfg": {
+            "stages": [],
+            "retries": 3,
+            "interactiveMessages": [
+              {
+                "instructions": "",
+                "enabled": false,
+                "type": "asset"
+              },
+              {
+                "instructions": "",
+                "type": "textQuickReplies",
+                "enabled": false
+              },
+              {
+                "type": "carousel",
+                "instructions": "",
+                "enabled": false
+              }
+            ],
+            "fieldOptions": []
+          },
+          "type": "generic"
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "version": "1",
+      "ports": {
+        "items": [
+          {
+            "id": "d7476c5c-6410-4db1-b102-1988866c0127",
+            "group": "in"
+          },
+          {
+            "args": {
+              "x": 175,
+              "y": 180
+            },
+            "category": "other",
+            "group": "default",
+            "id": "1c4a0909-e37d-4b48-8f90-42cb75427594",
+            "attrs": {
+              "portLabel": {
+                "text": "Error de contexto",
+                "x": 0,
+                "fill": "#52525C",
+                "textAnchor": "middle",
+                "fontWeight": 500,
+                "textWrap": {
+                  "width": -40
+                }
+              },
+              "portBody": {
+                "strokeWidth": 1,
+                "ry": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "rx": 14,
+                "fill": "#FFF4EE"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portRemoveButton": {
+                "display": "none"
+              }
+            }
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": 445
+            },
+            "category": "no_answer",
+            "attrs": {
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "data": {
+                "period": {
+                  "label": "minutos",
+                  "time": 30
+                },
+                "finalTime": 30
+              },
+              "portLabel": {
+                "x": 0,
+                "text": "Sin respuesta 30 minutos",
+                "fill": "#52525C",
+                "fontWeight": 500,
+                "textAnchor": "middle"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portBody": {
+                "strokeWidth": 1,
+                "fill": "#EFF5FF",
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "rx": 14,
+                "ry": 14
+              }
+            },
+            "group": "default",
+            "id": "1250d360-3a5b-4176-be46-46f22562d80c"
+          },
+          {
+            "id": "90a7be0a-4fd5-45ba-92c5-2134ce0c9589",
+            "group": "out",
+            "category": "message_body",
+            "attrs": {
+              "data": {
+                "intentPrompt": "El cliente pide una cotización o un test drive (prueba de manejo) del vehículo que consulta, ya sea de forma explícita (\"Quiero cotizar la Hilux\", \"¿Puedo probarla?\", \"Quiero agendar un test drive\", \"¿Cómo hago para comprarla?\") o aceptando la oferta del asesor (\"Sí\", \"Me interesa\", \"Dale, cotícela\", \"Sí, el test drive\"). NO aplica si solo pregunta precio, características o compara modelos: eso se responde con la información disponible",
+                "intentValue": "COTIZ_TESTDRIVE"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "rx": 14,
+                "strokeWidth": 1,
+                "fill": "#F4F7FA",
+                "ry": 14
+              },
+              "portLabel": {
+                "fontWeight": 500,
+                "text": "Intención: COTIZ_TESTDRIVE",
+                "fill": "#52525C"
+              }
+            },
+            "args": {
+              "x": -365,
+              "y": 180
+            }
+          },
+          {
+            "group": "out",
+            "id": "0a3e5e3a-52aa-40b8-b02e-3cf133c5c0ac",
+            "attrs": {
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "fill": "#F4F7FA",
+                "rx": 14,
+                "strokeWidth": 1,
+                "ry": 14
+              },
+              "data": {
+                "intentPrompt": "El cliente indica que su vehículo actual tiene una falla o problema, o que necesita mantenimiento, reparación, revisión o una cita de taller. Ej.: \"La que tengo necesita servicio\", \"También quiero agendar un mantenimiento\", \"Mi carro actual está fallando\". NO aplica si pregunta por características o mantenimiento de un modelo que está evaluando comprar.",
+                "intentValue": "CAMBIO_A_TALLER"
+              },
+              "portLabel": {
+                "text": "Intención: CAMBIO_A_TALLER",
+                "fill": "#52525C",
+                "fontWeight": 500
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              }
+            },
+            "args": {
+              "y": 180,
+              "x": -95
+            },
+            "category": "message_body"
+          }
+        ]
+      },
+      "id": "17118f72-8fd2-4a14-9a54-041776f1b8f8",
+      "size": {
+        "width": 72,
+        "height": 72
+      },
+      "position": {
+        "x": -6440,
+        "y": -8
+      },
+      "type": "app.Smarton"
+    },
+    {
+      "cellId": "jI2ULWhj8Nl27R86NUMi",
+      "z": 50,
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "data": {
+          "info": {
+            "text": "Disculpe, no pudimos completar el registro de sus datos. Por favor, escríbanos nuevamente en unos minutos.",
+            "imgCheck": false,
+            "location": {
+              "name": "",
+              "latitude": null,
+              "address": "",
+              "longitude": null
+            },
+            "platform": "whatsapp",
+            "isAddressChecked": true,
+            "buttonsChecked": false,
+            "type": "interactive_text",
+            "buttonsCheck": false,
+            "replacedText": "",
+            "file": "",
+            "isGeolocationChecked": false
+          }
+        },
+        "description": {
+          "values": [],
+          "replacedText": "Disculpe, no pudimos completar el registro de sus datos. Por favor, escríbanos nuevamente en unos minutos.",
+          "text": "Disculpe, no pudimos completar el registro de sus datos. Por favor, escríbanos nuevamente en unos minutos."
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "label": {
+          "text": "Mensaje #16"
+        }
+      },
+      "wasOpened": true,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "7a9653da-ab1a-4075-b756-5c762fe4698f"
+          },
+          {
+            "args": {
+              "x": 190,
+              "y": 160.5
+            },
+            "id": "8df5fa87-ad84-41b9-a47a-b47bbb8beb95",
+            "group": "out"
+          }
+        ]
+      },
+      "id": "cfa7293c-2041-40d4-ab6a-61d47d893084",
+      "size": {
+        "height": 160.5,
+        "width": 400
+      },
+      "position": {
+        "y": 1128,
+        "x": -5408
+      },
+      "messageChanged": false,
+      "type": "app.Message"
+    },
+    {
+      "wasOpened": true,
+      "z": 55,
+      "cellId": "jUonGPjxv8MyZrqpvJQr",
+      "ports": {
+        "items": [
+          {
+            "id": "08f9caed-a2d3-40d0-a102-5783120a1e65",
+            "group": "in"
+          },
+          {
+            "args": {
+              "y": 260.5,
+              "x": 190
+            },
+            "id": "667e9573-8187-4803-92f4-e374ef4ce040",
+            "attrs": {
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1
+              }
+            },
+            "group": "out"
+          }
+        ]
+      },
+      "attrs": {
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "description": {
+          "text": "¡Listo, first_name! Su cita en el taller de MotorTech quedó registrada:\n🚗 Placa: custom_placa_vehiculo\n📅 custom_fecha_deseada_cita_taller a las custom_hora_cita_taller\n🔧 Motivo: custom_descripcion_del_problema_taller\nLe esperamos.",
+          "replacedText": "¡Listo, {{client.first_name}}! Su cita en el taller de MotorTech quedó registrada:\n🚗 Placa: {{client.custom_placa_vehiculo}}\n📅 {{client.custom_fecha_deseada_cita_taller}} a las {{client.custom_hora_cita_taller}}\n🔧 Motivo: {{client.custom_descripcion_del_problema_taller}}\nLe esperamos.",
+          "values": [
+            "first_name",
+            "custom_placa_vehiculo",
+            "custom_fecha_deseada_cita_taller",
+            "custom_hora_cita_taller",
+            "custom_descripcion_del_problema_taller"
+          ]
+        },
+        "data": {
+          "info": {
+            "buttonsChecked": false,
+            "file": "",
+            "type": "interactive_text",
+            "replacedText": "",
+            "buttonsCheck": false,
+            "isGeolocationChecked": false,
+            "isAddressChecked": true,
+            "platform": "whatsapp",
+            "imgCheck": false,
+            "location": {
+              "latitude": null,
+              "longitude": null,
+              "address": "",
+              "name": ""
+            },
+            "text": "¡Listo, {{client.first_name}}! Su cita en el taller de MotorTech quedó registrada:\n🚗 Placa: {{client.custom_placa_vehiculo}}\n📅 {{client.custom_fecha_deseada_cita_taller}} a las {{client.custom_hora_cita_taller}}\n🔧 Motivo: {{client.custom_descripcion_del_problema_taller}}\nLe esperamos."
+          }
+        },
+        "label": {
+          "text": "Mensaje #17"
+        }
+      },
+      "position": {
+        "y": 1656,
+        "x": -6216
+      },
+      "messageChanged": false,
+      "id": "7031fc77-5482-442d-82ff-2a37f1b9a6cd",
+      "type": "app.Message",
+      "size": {
+        "width": 400,
+        "height": 260.5
+      }
+    },
+    {
+      "type": "app.Link",
+      "attrs": {},
+      "id": "6755efeb-6af4-41f6-be09-49a67464aba3",
+      "z": -1,
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "source": {
+        "id": "96f902db-a91d-4853-98d2-b13416d181f1",
+        "magnet": "portButton",
+        "port": "a5962cf6-3548-4993-8497-302722e8a58d"
+      },
+      "cellId": "kGtANIZ1selmFxl7KNyp",
+      "target": {
+        "id": "57717320-c2fa-4fe5-a3a8-47afa924f4f1",
+        "magnet": "portBody",
+        "port": "1dac1fbb-2d36-4786-817e-486115b65afb"
+      }
+    },
+    {
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "position": {
+        "x": -7752,
+        "y": 1096
+      },
+      "wasOpened": false,
+      "type": "app.HttpV2",
+      "version": "1",
+      "attrs": {
+        "http": {
+          "data": {
+            "responseConditions": [
+              {
+                "type": "success",
+                "isValid": true,
+                "hasRangeError": false,
+                "range": "200-299",
+                "id": "success"
+              },
+              {
+                "range": "400-599",
+                "id": "failure",
+                "isValid": true,
+                "type": "failure",
+                "hasRangeError": false
+              }
+            ],
+            "body": "",
+            "method": "GET",
+            "url": "<CRM_API_ENDPOINT>?token={{flow_field.crm_token}}&correo={{client.email}}",
+            "timeoutSeconds": 20,
+            "headers": []
+          },
+          "optionalFields": {
+            "url": {
+              "values": [
+                "crm_token",
+                "email"
+              ],
+              "content": "",
+              "replaced": "<CRM_API_ENDPOINT>?token={{flow_field.crm_token}}&correo={{client.email}}"
+            },
+            "body": {
+              "values": [],
+              "content": "",
+              "replaced": ""
+            },
+            "headers": {}
+          },
+          "authConfig": {
+            "type": "NONE",
+            "enabled": false
+          },
+          "fieldsToSave": [
+            {
+              "id": "f7891382-41cf-4540-8eef-8e0820281e12",
+              "optionalField": null,
+              "nameError": false,
+              "responseKey": "status",
+              "fieldType": "dynamic",
+              "isFocus": false,
+              "dynamicField": {
+                "id": "7cf83b76-160e-46d1-ba8f-eaf03f0258e1",
+                "keyword": "crm_busqueda_status",
+                "name": "crm_busqueda_status",
+                "isFlowField": true,
+                "displayModules": [],
+                "originComponent": "http",
+                "category": "flow_field",
+                "type": "dynamic"
+              }
+            },
+            {
+              "isFocus": false,
+              "nameError": false,
+              "id": "da54876c-e1ed-457d-8086-379379516d3a",
+              "fieldType": "dynamic",
+              "optionalField": null,
+              "responseKey": "id",
+              "dynamicField": {
+                "id": "a06b0e56-894a-4c95-bb96-f4a6952f452c",
+                "type": "dynamic",
+                "name": "crm_id",
+                "displayModules": [],
+                "keyword": "crm_id",
+                "originComponent": "http",
+                "category": "flow_field",
+                "isFlowField": true
+              }
+            }
+          ]
+        },
+        "label": {
+          "text": "Petición HTTP #2"
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "config": {
+          "handleSave": true,
+          "customTimeout": true,
+          "handleResponse": true
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "206f2932-dc43-4774-a503-2d5c28417775"
+          },
+          {
+            "args": {
+              "x": 175,
+              "y": 180
+            },
+            "group": "default",
+            "id": "7e797eae-2723-4d2b-8543-9c62582d5b62",
+            "category": "failure",
+            "attrs": {
+              "portBody": {
+                "strokeWidth": 1,
+                "fill": "#F4F7FA",
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "ry": 14,
+                "rx": 14
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "x": 0,
+                "text": "Error",
+                "textAnchor": "middle",
+                "fontWeight": 500
+              }
+            }
+          },
+          {
+            "group": "default",
+            "id": "2febf9a3-0d49-4232-99fd-ad865b54af6a",
+            "category": "success",
+            "attrs": {
+              "portBody": {
+                "ry": 14,
+                "fill": "#F4F7FA",
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1,
+                "rx": 14
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portLabel": {
+                "x": 0,
+                "text": "Éxito",
+                "fontWeight": 500,
+                "textAnchor": "middle",
+                "fill": "#52525C"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              }
+            },
+            "args": {
+              "y": 180,
+              "x": -95
+            }
+          }
+        ]
+      },
+      "z": 32,
+      "id": "ebcf2e10-4ecd-4ea4-9745-f3ef7b8dc5e2",
+      "cellId": "lelCLPCNhC8uvDD31pq4"
+    },
+    {
+      "version": "1",
+      "id": "37eaa782-81b0-4728-98f5-faf0948010b0",
+      "attrs": {},
+      "source": {
+        "id": "4cfbef06-f0c4-4a4e-8192-8ec34901a297",
+        "magnet": "portButton",
+        "port": "ed545de4-c1b4-4a4d-b789-991590ccf955"
+      },
+      "cellId": "mRawc000SIfrfP8EFbBD",
+      "target": {
+        "id": "209c2512-965f-4834-a834-0b57e55e765a",
+        "port": "4590259c-5a3d-4542-afa0-9757c0518642",
+        "magnet": "portBody"
+      },
+      "type": "app.Link",
+      "z": -1,
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ]
+    },
+    {
+      "messageChanged": false,
+      "version": "1",
+      "position": {
+        "y": 1338,
+        "x": -7752
+      },
+      "wasOpened": false,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "c166a835-4a45-4f32-b8ac-2b0215207a68"
+          },
+          {
+            "args": {
+              "y": 160.5,
+              "x": 190
+            },
+            "id": "1f663b6c-8d83-46e5-b783-06479113c812",
+            "group": "out"
+          }
+        ]
+      },
+      "id": "1ab03a58-e0ae-4522-9504-469d321f4b69",
+      "attrs": {
+        "description": {
+          "values": [],
+          "replacedText": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+          "text": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos."
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        },
+        "label": {
+          "text": "Mensaje #11"
+        },
+        "data": {
+          "info": {
+            "isAddressChecked": true,
+            "buttonsCheck": false,
+            "replacedText": "",
+            "imgCheck": false,
+            "location": {
+              "longitude": null,
+              "latitude": null,
+              "address": "",
+              "name": ""
+            },
+            "isGeolocationChecked": false,
+            "platform": "whatsapp",
+            "text": "Tuvimos un inconveniente técnico al registrar su solicitud. Por favor, escríbanos nuevamente en unos minutos.",
+            "file": "",
+            "type": "interactive_text",
+            "buttonsChecked": false
+          }
+        }
+      },
+      "type": "app.Message",
+      "cellId": "myi6ZHkpmM2pGSsHzyFF",
+      "z": 37,
+      "size": {
+        "width": 400,
+        "height": 160.5
+      }
+    },
+    {
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "type": "app.Link",
+      "cellId": "nEzhZ4GGWrNdPNXvNmMB",
+      "target": {
+        "port": "5e2a2fca-5c40-43ef-9bcd-20e7d5f61549",
+        "id": "8a5950f3-0419-48a6-880e-8dc79505f13c",
+        "magnet": "portBody"
+      },
+      "source": {
+        "magnet": "portButton",
+        "port": "af3c5f79-bccf-4248-a41a-1e35b929ca9b",
+        "id": "55260f63-804b-4a37-ac89-34c9ce9f551b"
+      },
+      "attrs": {},
+      "z": -1,
+      "id": "4155bd26-a058-4ee5-934d-a2f8daa5063b",
+      "version": "1"
+    },
+    {
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "wasOpened": false,
+      "type": "app.Conditional",
+      "cellId": "p8mFnZNka5vFlKd3CyWV",
+      "attrs": {
+        "label": {
+          "text": "Condicional #2"
+        },
+        "data": {
+          "isChecked": ""
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "ports": {
+        "items": [
+          {
+            "id": "c997bff2-ceb8-45f2-88c8-7b6e1d602e7b",
+            "group": "in"
+          },
+          {
+            "attrs": {
+              "portLabel": {
+                "fill": "#52525C",
+                "fontWeight": 500,
+                "text": "Otro"
+              },
+              "portBody": {
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "fill": "#FFF4EE",
+                "strokeWidth": 1,
+                "rx": 14,
+                "ry": 14
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              }
+            },
+            "args": {
+              "y": 180,
+              "x": 175
+            },
+            "group": "default",
+            "id": "500e5821-f850-477b-bbb8-0d6d0e91a95b",
+            "category": "other"
+          },
+          {
+            "id": "e07a68e1-1ab6-4265-8dc2-b41b9649e9a2",
+            "args": {
+              "y": 180,
+              "x": -95
+            },
+            "group": "out",
+            "attrs": {
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "selectedOption": {
+                "text": "es igual que",
+                "title": "Contacto creado",
+                "conditions": [
+                  {
+                    "valueType": {
+                      "category": "flow_field",
+                      "id": "90f1b1d2-738d-4dd5-8a5a-ddf1de8a373c",
+                      "name": "crm_creacion_status",
+                      "displayModules": [],
+                      "originComponent": "http",
+                      "keyword": "crm_creacion_status",
+                      "isFlowField": true,
+                      "type": "dynamic"
+                    },
+                    "condition": null,
+                    "operator": {
+                      "regex": false,
+                      "originalText": "es igual que",
+                      "category": "equal_to",
+                      "type": "text",
+                      "expression": "===",
+                      "text": "es igual que",
+                      "atomMagic": true
+                    },
+                    "value": {
+                      "body": "success",
+                      "values": []
+                    }
+                  }
+                ],
+                "httpComponent": "",
+                "currentSchedule": "",
+                "defaultValueTracked": true,
+                "valueType": "",
+                "selectedResult": "informationField",
+                "value": "",
+                "category": "equal_to"
+              },
+              "portLabel": {
+                "text": "es igual que Contacto creado",
+                "fill": "#52525C",
+                "fontWeight": 500
+              },
+              "portBody": {
+                "fill": "#F4F7FA",
+                "rx": 14,
+                "ry": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1
+              },
+              "portRemoveButton": {
+                "display": "unset"
+              }
+            }
+          }
+        ]
+      },
+      "z": 40,
+      "id": "7dcb6728-c764-4853-9ab2-7f33606d803e",
+      "version": "1",
+      "position": {
+        "x": -7944,
+        "y": 2144
+      }
+    },
+    {
+      "attrs": {},
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "cellId": "pFJsLnzNVTcjKeZ8t9IF",
+      "target": {
+        "id": "94aaad42-afff-45c1-a43e-ff1048b336c9",
+        "magnet": "portBody",
+        "port": "95ecd8fa-2714-4f31-9a2e-39f375adf2e3"
+      },
+      "source": {
+        "magnet": "portButton",
+        "port": "1f663b6c-8d83-46e5-b783-06479113c812",
+        "id": "1ab03a58-e0ae-4522-9504-469d321f4b69"
+      },
+      "type": "app.Link",
+      "id": "3876c905-1a5a-403e-9299-b15581bdaddf",
+      "z": -1,
+      "version": "1"
+    },
+    {
+      "target": {
+        "magnet": "portBody",
+        "id": "9047ec99-4259-4f20-9d2c-cb9547202e03",
+        "port": "a3bcb142-13c8-4e83-8c39-a1f855a2f3c5"
+      },
+      "cellId": "pNltBTYJJ4sBFwG4IHHP",
+      "source": {
+        "magnet": "portButton",
+        "id": "4ace2adf-c559-4224-854f-4a7558463619",
+        "port": "a1e83242-2a8b-4bda-8880-b23608aa4501"
+      },
+      "type": "app.Link",
+      "z": -1,
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "id": "e34e0e8b-874a-4a35-b1ee-30e4684873b1",
+      "attrs": {}
+    },
+    {
+      "version": "1",
+      "type": "app.Link",
+      "id": "d973bb41-49cf-4b44-8a07-454cba8455bd",
+      "z": -1,
+      "attrs": {},
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "target": {
+        "id": "5566caab-e182-46ba-a9e8-19cc1e0cfee4",
+        "port": "072cf50b-758a-47d1-8dac-eeec44f84270",
+        "magnet": "portBody"
+      },
+      "cellId": "ptEf9M688SMeHPh9VLDy",
+      "source": {
+        "id": "8a5950f3-0419-48a6-880e-8dc79505f13c",
+        "magnet": "portButton",
+        "port": "d3bbbf30-67ec-4787-8c06-1bc7a299dd08"
+      }
+    },
+    {
+      "type": "app.Link",
+      "id": "e7b423cb-00d4-4d8b-8e42-e67cba08cbe6",
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "source": {
+        "port": "2f626f90-9bfe-49a4-b51d-763c236a4cbf",
+        "id": "5566caab-e182-46ba-a9e8-19cc1e0cfee4",
+        "magnet": "portButton"
+      },
+      "cellId": "qg15AwYVKxlqd4H7OgqS",
+      "target": {
+        "id": "ce10d2db-280d-471d-a479-03fb509f9aac",
+        "port": "385967b7-5e9e-48b6-9143-fcc79736acb3",
+        "magnet": "portBody"
+      },
+      "attrs": {},
+      "z": -1,
+      "version": "1"
+    },
+    {
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "66d5d28c-a776-4c6c-9e53-da2a0ce9f400"
+          }
+        ]
+      },
+      "type": "app.FlowchartEnd",
+      "cellId": "qmZ7Gdca2Pp6jDJHhLsn",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #8"
+        }
+      },
+      "id": "936bf98b-d866-45e6-8d20-6a765daf032e",
+      "version": "1",
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "wasOpened": false,
+      "z": 22,
+      "position": {
+        "y": 240,
+        "x": -5872
+      }
+    },
+    {
+      "cellId": "rXLHmvWaihuChbZSq98h",
+      "z": 29,
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "438b83e2-5953-424e-98cf-6227cb1dc547"
+          }
+        ]
+      },
+      "version": "1",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #11"
+        }
+      },
+      "position": {
+        "x": -6392,
+        "y": 816
+      },
+      "id": "e296f271-3b26-4729-b407-ef9d2a1b492f",
+      "type": "app.FlowchartEnd",
+      "size": {
+        "width": 48,
+        "height": 48
+      },
+      "wasOpened": false
+    },
+    {
+      "type": "app.Link",
+      "attrs": {},
+      "id": "92328a70-a33f-4331-88da-a21122976887",
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "source": {
+        "id": "cfa7293c-2041-40d4-ab6a-61d47d893084",
+        "magnet": "portButton",
+        "port": "8df5fa87-ad84-41b9-a47a-b47bbb8beb95"
+      },
+      "target": {
+        "magnet": "portBody",
+        "port": "f163a0a9-016e-47ce-ae96-2da468c55b12",
+        "id": "daa723e0-95d1-486d-bcac-14b21ba1c6a4"
+      },
+      "cellId": "sMbfMGXtU2ROtnOGtKjR",
+      "z": -1
+    },
+    {
+      "z": -1,
+      "target": {
+        "id": "cfa7293c-2041-40d4-ab6a-61d47d893084",
+        "magnet": "portBody",
+        "port": "7a9653da-ab1a-4075-b756-5c762fe4698f"
+      },
+      "cellId": "uOqN7CHDljdykXV795d5",
+      "source": {
+        "magnet": "portButton",
+        "port": "769f02ee-7115-4e94-88a4-1cd8bd45f08e",
+        "id": "96f902db-a91d-4853-98d2-b13416d181f1"
+      },
+      "type": "app.Link",
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "id": "19375eb8-a540-45a3-aa4b-7944e009f5b8",
+      "attrs": {}
+    },
+    {
+      "wasOpened": false,
+      "version": "1",
+      "position": {
+        "y": 1412.5,
+        "x": -7188
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "afcf713a-486d-4252-9c71-1f69c1371d1b"
+          }
+        ]
+      },
+      "id": "46265949-7a6f-4b79-abb7-e808a9d31516",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #12"
+        }
+      },
+      "cellId": "uVE0C1nhP0OpshAmJPUy",
+      "type": "app.FlowchartEnd",
+      "z": 33,
+      "size": {
+        "height": 48,
+        "width": 48
+      }
+    },
+    {
+      "wasOpened": false,
+      "version": "1",
+      "position": {
+        "x": -8432,
+        "y": 1672
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "eeab6a54-44f6-4287-8b26-d578952549a2"
+          },
+          {
+            "id": "afa158bb-6dc6-4e77-a688-aed359ee0b6c",
+            "args": {
+              "x": 190,
+              "y": 200.49998474121094
+            },
+            "attrs": {
+              "portBody": {
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              }
+            },
+            "group": "out"
+          }
+        ]
+      },
+      "id": "5a9c5ebb-a351-46b6-a9f7-bd177668e5ae",
+      "attrs": {
+        "alternativeLabel": {
+          "text": ""
+        },
+        "label": {
+          "text": "Mensaje #10"
+        },
+        "data": {
+          "info": {
+            "buttonsChecked": false,
+            "imgCheck": false,
+            "location": {
+              "longitude": null,
+              "latitude": null,
+              "address": "",
+              "name": ""
+            },
+            "platform": "whatsapp",
+            "text": "¡Listo, {{client.first_name}}! Ya tenemos su registro en MotorTech. Un asesor lo contactará pronto con la información de la Toyota {{client.custom_modelo_de_interes}}.\nNúmero de referencia: {{flow_field.crm_id}}",
+            "isAddressChecked": true,
+            "file": "",
+            "isGeolocationChecked": false,
+            "type": "interactive_text",
+            "buttonsCheck": false,
+            "replacedText": ""
+          }
+        },
+        "description": {
+          "text": "¡Listo, first_name! Ya tenemos su registro en MotorTech. Un asesor lo contactará pronto con la información de la Toyota custom_modelo_de_interes.\nNúmero de referencia: crm_id",
+          "values": [
+            "first_name",
+            "custom_modelo_de_interes",
+            "crm_id"
+          ],
+          "replacedText": "¡Listo, {{client.first_name}}! Ya tenemos su registro en MotorTech. Un asesor lo contactará pronto con la información de la Toyota {{client.custom_modelo_de_interes}}.\nNúmero de referencia: {{flow_field.crm_id}}"
+        },
+        "selectedOption": {
+          "selected": {
+            "keyword": "interactive_text"
+          }
+        }
+      },
+      "type": "app.Message",
+      "cellId": "vKfV6xA4Dpf4UthMwcn4",
+      "z": 35,
+      "messageChanged": false,
+      "size": {
+        "width": 400,
+        "height": 200.49998474121094
+      }
+    },
+    {
+      "type": "app.Link",
+      "id": "852f2c4c-1963-4efa-8a4b-841588da342d",
+      "version": "1",
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "source": {
+        "magnet": "portButton",
+        "port": "6bbe7d62-cec1-4983-bc49-9c71099cb3c0",
+        "id": "19997eee-5f08-4d15-8bc0-1a2c93d0dda9"
+      },
+      "cellId": "w69P0UH7HQzhEdsAhbH0",
+      "target": {
+        "port": "d7476c5c-6410-4db1-b102-1988866c0127",
+        "id": "17118f72-8fd2-4a14-9a54-041776f1b8f8",
+        "magnet": "portBody"
+      },
+      "attrs": {},
+      "z": -1
+    },
+    {
+      "ports": {
+        "items": [
+          {
+            "id": "ae8fabf9-36a5-4853-b07b-5cfbd28a1b2e",
+            "group": "in"
+          }
+        ]
+      },
+      "type": "app.FlowchartEnd",
+      "attrs": {
+        "label": {
+          "text": "Fin de flujo #22"
+        }
+      },
+      "position": {
+        "y": 2086.5,
+        "x": -6052
+      },
+      "id": "f3e54d32-267f-4273-8d52-3c083d4d92df",
+      "size": {
+        "height": 48,
+        "width": 48
+      },
+      "cellId": "wKtwJGtxUynJqedLYoQK",
+      "wasOpened": false,
+      "z": 58
+    },
+    {
+      "type": "app.Smarton",
+      "id": "96f902db-a91d-4853-98d2-b13416d181f1",
+      "wasOpened": true,
+      "version": "1",
+      "cellId": "wqN4cmRzKxhQDCgSwbM0",
+      "size": {
+        "width": 72,
+        "height": 72
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "62ea7810-dcf8-4b99-9b3e-65120a33f4c0"
+          },
+          {
+            "id": "f9f4c1b5-0102-43c1-b43c-1052f59d6212",
+            "group": "default",
+            "category": "success",
+            "attrs": {
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portBody": {
+                "rx": 14,
+                "fill": "#F4F7FA",
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "ry": 14,
+                "strokeWidth": 1
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "x": 0,
+                "text": "Guardado exitoso",
+                "fontWeight": 500,
+                "textAnchor": "middle"
+              }
+            },
+            "args": {
+              "y": 180,
+              "x": -230
+            }
+          },
+          {
+            "id": "769f02ee-7115-4e94-88a4-1cd8bd45f08e",
+            "attrs": {
+              "portBody": {
+                "fill": "#FFF4EE",
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1,
+                "rx": 14,
+                "ry": 14
+              },
+              "portInfoIcon": {
+                "dataTooltip": "Ocurre si un campo obligatorio se intentó recolectar 3 veces sin éxito, o si todos los campos son opcionales y ninguno se pudo recolectar.",
+                "display": "unset"
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "x": 0,
+                "fontWeight": 500,
+                "textWrap": {
+                  "width": -64
+                },
+                "text": "Guardado fallido",
+                "textAnchor": "middle"
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "portRemoveButton": {
+                "display": "none"
+              }
+            },
+            "args": {
+              "y": 180,
+              "x": 40
+            },
+            "category": "failure",
+            "group": "default"
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": 310
+            },
+            "group": "default",
+            "category": "no_answer",
+            "attrs": {
+              "portBody": {
+                "ry": 14,
+                "rx": 14,
+                "fill": "#EFF5FF",
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "data": {
+                "finalTime": 30,
+                "period": {
+                  "time": 30,
+                  "label": "minutos"
+                }
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "fontWeight": 500,
+                "text": "Sin Respuesta 30 minutos",
+                "textAnchor": "middle",
+                "x": 0
+              }
+            },
+            "id": "a5962cf6-3548-4993-8497-302722e8a58d"
+          }
+        ]
+      },
+      "z": 47,
+      "attrs": {
+        "label": {
+          "text": "Smarton #4"
+        },
+        "data": {
+          "commonCfg": {
+            "retries": 3,
+            "interactiveMessages": [
+              {
+                "type": "textQuickReplies",
+                "instructions": "",
+                "enabled": false
+              }
+            ],
+            "responseConfig": {
+              "structure": {
+                "values": [],
+                "body": "Del primer mensaje del cliente solo puedes tomar el motivo de la visita. El nombre y la placa pregúntalos SIEMPRE, aunque el cliente haya mencionado el modelo de su vehículo. El modelo (Hilux, Corolla, etc.) nunca es un nombre ni una placa.\n\nPide un solo dato por mensaje. Valida cada respuesta antes de guardarla:\n- Motivo de la visita: si el cliente ya lo contó en su primer mensaje (ej.: \"mi carro hace un ruido al frenar\"), úsalo y no lo preguntes de nuevo. Guárdalo resumido en una frase.\n- Nombre: pídelo siempre. Debe ser un nombre de persona.\n- Placa: pídela siempre. Formato colombiano, 3 letras y 3 números (ej.: ABC123). Si el cliente la escribe en minúsculas o con espacios o guiones (ej.: abc 123, abc-123), conviértela tú a mayúsculas sin espacios y acéptala. Solo pídela de nuevo si no tiene 3 letras y 3 números.\n- Fecha: guárdala en formato DD/MM/AAAA. Si el cliente responde con una expresión como \"mañana\" o \"el martes\", pídele la fecha exacta (ej.: 15/10/2026).\n- Hora: guárdala en formato 24 horas HH:MM (ej.: \"10 de la mañana\" = 10:00, \"3 de la tarde\" = 15:00)."
+              },
+              "cta": {
+                "body": "Cuando tengas todos los datos, responde solamente: \"Gracias, {{client.first_name}}. Estoy agendando su cita, un momento por favor.\" No confirmes la cita ni digas que está agendada: eso se confirma en el siguiente paso del proceso.",
+                "values": [
+                  "first_name"
+                ]
+              },
+              "tone": {
+                "values": [],
+                "body": "Trato de \"usted\", cordial, profesional y breve (máximo 2 líneas por mensaje). Si el cliente reporta una falla, muestra empatía en una frase corta sin dar diagnósticos. Al empezar, indica que necesita unos datos para agendar la cita en el taller. Usa el nombre del cliente una vez que lo conozcas. No repitas el saludo."
+              },
+              "farewellEnabled": true
+            },
+            "stages": [],
+            "fieldOptions": [
+              {
+                "required": true,
+                "optionalField": {
+                  "required": false,
+                  "isSystem": false,
+                  "id": "mvwP34n3QjDznmMtnCz4",
+                  "updatedAt": {
+                    "_nanoseconds": 985000000,
+                    "_seconds": 1790192056
+                  },
+                  "length": 500,
+                  "type": "Texto",
+                  "keyword": "custom_descripcion_del_problema_taller",
+                  "createdAt": {
+                    "_seconds": 1790091207,
+                    "_nanoseconds": 471000000
+                  },
+                  "active": true,
+                  "description": "Motivo de la visita al taller: falla, mantenimiento, cambio de aceite, revisión u otro servicio. Resumido en una frase.",
+                  "securityConfig": {
+                    "active": false
+                  },
+                  "name": "Descripción del Problema (Taller)",
+                  "category": "predefined_field"
+                },
+                "id": "e8d566bc-39cb-43c6-ab95-f3edef08c850"
+              },
+              {
+                "optionalField": {
+                  "reservedNames": [
+                    "firstName",
+                    "first_name",
+                    "primer nombre",
+                    "primeiro nome",
+                    "prénom",
+                    "primer_nombre",
+                    "primeiro_nome",
+                    "prénom",
+                    "first name",
+                    "clientName",
+                    "client_name",
+                    "nomClient",
+                    "nom_client",
+                    "nombreCliente",
+                    "nombre_cliente"
+                  ],
+                  "required": false,
+                  "isSystem": true,
+                  "keywordPath": "firstName",
+                  "name": "Nombre",
+                  "id": "a6lJWQJZ3Ein0iEkGQ8F_sys",
+                  "description": "Primer nombre del cliente. Utilizado para personalizar las interacciones y comunicaciones.",
+                  "position": 1,
+                  "isProcessed": true,
+                  "sameAs": null,
+                  "type": "Texto",
+                  "readOnly": false,
+                  "requiredResources": [
+                    "client"
+                  ],
+                  "category": "variable",
+                  "keyword": "first_name",
+                  "length": 255,
+                  "active": true
+                },
+                "required": true,
+                "id": "a7ced0be-1bfd-4e69-9e01-514ded73ef5c"
+              },
+              {
+                "id": "f9919619-172e-465d-8cb2-0e51e01b2154",
+                "optionalField": {
+                  "createdAt": {
+                    "_seconds": 1790091207,
+                    "_nanoseconds": 510000000
+                  },
+                  "length": 30,
+                  "active": true,
+                  "name": "Placa Vehículo",
+                  "securityConfig": {
+                    "active": false
+                  },
+                  "description": "Placa del vehículo colombiano, en mayúsculas y sin espacios ni guiones. Ej: ABC123",
+                  "category": "predefined_field",
+                  "updatedAt": {
+                    "_seconds": 1790192039,
+                    "_nanoseconds": 293000000
+                  },
+                  "id": "K2Pla0b2MD3afeoFrfyu",
+                  "required": false,
+                  "isSystem": false,
+                  "type": "Texto",
+                  "keyword": "custom_placa_vehiculo"
+                },
+                "required": true
+              },
+              {
+                "required": true,
+                "id": "820a1828-8130-43af-b5ec-6bda75a17fe0",
+                "optionalField": {
+                  "name": "Fecha Deseada Cita (Taller)",
+                  "securityConfig": {
+                    "active": false
+                  },
+                  "isSystem": false,
+                  "required": false,
+                  "length": 60,
+                  "description": "Fecha deseada para la cita en el taller, en formato DD/MM/AAAA. Ej: 15/10/2026",
+                  "active": true,
+                  "keyword": "custom_fecha_deseada_cita_taller",
+                  "id": "QcJ1C75ljTTYoq7NRpsV",
+                  "category": "predefined_field",
+                  "createdAt": {
+                    "_nanoseconds": 547000000,
+                    "_seconds": 1790091207
+                  },
+                  "updatedAt": {
+                    "_seconds": 1790192074,
+                    "_nanoseconds": 970000000
+                  },
+                  "type": "Texto"
+                }
+              },
+              {
+                "required": true,
+                "optionalField": {
+                  "type": "Texto",
+                  "category": "predefined_field",
+                  "keyword": "custom_hora_cita_taller",
+                  "id": "NxzYMNwDMvA4QkoIhmhc",
+                  "syncWithHubSpot": false,
+                  "description": "Hora deseada para la cita en el taller, en formato 24 horas HH:MM. Ej: 09:30",
+                  "updatedAt": {
+                    "_nanoseconds": 589000000,
+                    "_seconds": 1790192007
+                  },
+                  "length": 20,
+                  "active": true,
+                  "required": false,
+                  "isSystem": false,
+                  "securityConfig": {
+                    "active": false
+                  },
+                  "createdAt": {
+                    "_nanoseconds": 589000000,
+                    "_seconds": 1790192007
+                  },
+                  "name": "Hora Cita (Taller)"
+                },
+                "id": "804b1cd3-61bc-44bd-ba06-a6f68fc154ea"
+              }
+            ]
+          },
+          "genericModeCfg": {},
+          "type": "saveFields"
+        },
+        "buttons": {
+          "current": []
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "position": {
+        "y": 520,
+        "x": -5464
+      }
+    },
+    {
+      "id": "da7b40b3-8c3e-4022-ae50-7a8b0af72c52",
+      "z": -1,
+      "attrs": {},
+      "type": "app.Link",
+      "target": {
+        "id": "7031fc77-5482-442d-82ff-2a37f1b9a6cd",
+        "magnet": "portBody",
+        "port": "08f9caed-a2d3-40d0-a102-5783120a1e65"
+      },
+      "cellId": "wsSPyhkHKDkL38omT6jK",
+      "source": {
+        "id": "9047ec99-4259-4f20-9d2c-cb9547202e03",
+        "magnet": "portButton",
+        "port": "1c36ab7b-e60a-471a-83d0-f17e13a98a32"
+      },
+      "labels": [
+        {
+          "attrs": {
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            },
+            "labelText": {
+              "text": ""
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "position": {
+        "y": -230,
+        "x": -5408
+      },
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "3bb55b2a-d2b2-490e-96b8-079ac10ddc61"
+          },
+          {
+            "id": "affe7ead-1c10-44b0-a27a-3cb8be6802f2",
+            "args": {
+              "x": 175,
+              "y": 180
+            },
+            "group": "default",
+            "category": "other",
+            "attrs": {
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portBody": {
+                "fill": "#FFF4EE",
+                "rx": 14,
+                "ry": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1
+              },
+              "portLabel": {
+                "fontWeight": 500,
+                "textAnchor": "middle",
+                "textWrap": {
+                  "width": -40
+                },
+                "fill": "#52525C",
+                "x": 0,
+                "text": "Error de contexto"
+              }
+            }
+          },
+          {
+            "id": "40f7ba87-bc58-44d9-89ca-3ce0ca73259c",
+            "attrs": {
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "data": {
+                "period": {
+                  "time": 30,
+                  "label": "minutos"
+                },
+                "finalTime": 30
+              },
+              "portBody": {
+                "ry": 14,
+                "strokeWidth": 1,
+                "rx": 14,
+                "fill": "#EFF5FF",
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              },
+              "portLabel": {
+                "text": "Sin respuesta 30 minutos",
+                "x": 0,
+                "fill": "#52525C",
+                "textAnchor": "middle",
+                "fontWeight": 500
+              }
+            },
+            "args": {
+              "x": 445,
+              "y": 180
+            },
+            "category": "no_answer",
+            "group": "default"
+          },
+          {
+            "attrs": {
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              },
+              "portLabel": {
+                "text": "Intención: VENTAS",
+                "fontWeight": 500,
+                "fill": "#52525C"
+              },
+              "portBody": {
+                "ry": 14,
+                "strokeWidth": 1,
+                "rx": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "fill": "#F4F7FA"
+              },
+              "data": {
+                "intentPrompt": "El cliente quiere comprar un vehículo Toyota o conocer uno antes de decidir: pide información general, características, motor, potencia, capacidad, equipamiento, uso, precios, comparaciones, cotización o test drive de un modelo, aunque no diga \"comprar\". Ej.: \"Hola, estoy interesado en conocer los autos\", \"¿Cuánto cuesta la Hilux?\", \"Cuénteme las características del Corolla Cross\". NO aplica si reporta una falla o pide servicio para un vehículo que ya tiene.",
+                "intentValue": "VENTAS"
+              }
+            },
+            "id": "6bbe7d62-cec1-4983-bc49-9c71099cb3c0",
+            "group": "out",
+            "category": "message_body",
+            "args": {
+              "x": -365,
+              "y": 180
+            }
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": -95
+            },
+            "attrs": {
+              "data": {
+                "intentValue": "POSVENTA",
+                "intentPrompt": "El cliente ya tiene un vehículo y necesita atención de taller: reporta una falla, ruido, luz de advertencia o problema, o pide mantenimiento, revisión, cambio de aceite, reparación, garantía o una cita de servicio. Ej.: \"Buenas tardes, tengo un problema con mi vehículo\", \"Necesito cambiar el aceite\", \"Quiero llevar mi carro al taller\". NO aplica si solo menciona que tiene un Toyota sin pedir un servicio."
+              },
+              "portBody": {
+                "fill": "#F4F7FA",
+                "strokeWidth": 1,
+                "rx": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "ry": 14
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portLabel": {
+                "text": "Intención: POSVENTA",
+                "fontWeight": 500,
+                "fill": "#52525C"
+              }
+            },
+            "id": "2b1326e4-0452-4934-b609-7b7a2cf4ba4c",
+            "category": "message_body",
+            "group": "out"
+          }
+        ]
+      },
+      "z": 7,
+      "attrs": {
+        "label": {
+          "text": "Smarton #1"
+        },
+        "data": {
+          "commonCfg": {
+            "interactiveMessages": [
+              {
+                "enabled": false,
+                "instructions": "",
+                "type": "asset"
+              },
+              {
+                "type": "textQuickReplies",
+                "instructions": "",
+                "enabled": false
+              },
+              {
+                "type": "carousel",
+                "enabled": false,
+                "instructions": ""
+              }
+            ],
+            "retries": 3,
+            "stages": [],
+            "fieldOptions": []
+          },
+          "type": "generic",
+          "genericModeCfg": {
+            "description": "Asistente de bienvenida de MotorTech (Toyota Colombia). Identifica si el cliente quiere comprar un vehículo (Ventas) o necesita atención de taller para su vehículo (Posventa) y lo deriva. No entrega información de productos.",
+            "promptValue": {
+              "body": "Eres el asistente virtual de MotorTech, concesionario oficial Toyota en Colombia. Atiendes por WhatsApp.\n\n# TU ÚNICA TAREA\nEntender qué necesita el cliente para dirigirlo al área correcta:\n- VENTAS: quiere comprar un vehículo o está evaluando hacerlo (modelos, precios, características, comparaciones, cotización o test drive).\n- POSVENTA / TALLER: ya tiene un vehículo que presenta una falla o problema, o necesita mantenimiento, revisión, reparación o una cita de servicio.\n\n# REGLAS\n- Interpreta la intención completa del mensaje, no palabras sueltas. \"Tengo una Hilux\" no es una solicitud de taller; \"Mi Hilux hace un ruido\" sí lo es.\n- NO respondas preguntas sobre modelos, precios, características ni diagnósticos de fallas. De eso se encarga el área a la que vas a derivar.\n- Si el mensaje no deja clara la necesidad (ej.: \"Hola\", \"Necesito información\", \"Tengo una Toyota\", \"Quiero ayuda\"), saluda y pregunta en una sola frase si busca información para comprar un vehículo o atención de taller para su vehículo.\n- Si el cliente menciona las dos necesidades, pregúntale con cuál quiere empezar.\n- Si pregunta algo sin relación con vehículos Toyota o el taller, responde con amabilidad que puedes ayudarle con la compra de un vehículo o con el servicio de taller.\n\n# ESTILO\n- Trato de \"usted\", cordial y profesional.\n- Mensajes de máximo 2 líneas. Máximo 1 emoji.\n- Saluda solo en el primer mensaje.",
+              "values": []
+            },
+            "modelAI": {
+              "id": "gpt41",
+              "name": "GPT 4.1",
+              "provider": "OpenAI"
+            },
+            "topKActive": false,
+            "topK": 4
+          }
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "buttons": {
+          "current": []
+        },
+        "isMainMenu": {
+          "isChecked": true
+        }
+      },
+      "version": "1",
+      "type": "app.Smarton",
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "id": "19997eee-5f08-4d15-8bc0-1a2c93d0dda9",
+      "cellId": "y0dnHEj4V7JHAkJE2FAb",
+      "wasOpened": true
+    },
+    {
+      "type": "app.Smarton",
+      "ports": {
+        "items": [
+          {
+            "group": "in",
+            "id": "097c15a8-eb96-4db5-a450-1a4d80e92461"
+          },
+          {
+            "id": "f613e75d-3b6b-4d57-9ba3-684b82906fa5",
+            "group": "default",
+            "args": {
+              "x": -230,
+              "y": 180
+            },
+            "category": "success",
+            "attrs": {
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "text": "Guardado exitoso",
+                "x": 0,
+                "textAnchor": "middle",
+                "fontWeight": 500
+              },
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portBody": {
+                "ry": 14,
+                "fill": "#F4F7FA",
+                "strokeWidth": 1,
+                "rx": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              }
+            }
+          },
+          {
+            "args": {
+              "y": 180,
+              "x": 40
+            },
+            "group": "default",
+            "category": "failure",
+            "attrs": {
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "portLabel": {
+                "textAnchor": "middle",
+                "fill": "#52525C",
+                "fontWeight": 500,
+                "text": "Guardado fallido",
+                "x": 0,
+                "textWrap": {
+                  "width": -64
+                }
+              },
+              "portBody": {
+                "rx": 14,
+                "ry": 14,
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "fill": "#FFF4EE"
+              },
+              "portInfoIcon": {
+                "dataTooltip": "Ocurre si un campo obligatorio se intentó recolectar 3 veces sin éxito, o si todos los campos son opcionales y ninguno se pudo recolectar.",
+                "display": "unset"
+              },
+              "centerHalfLinePort": {
+                "stroke": "#52525C",
+                "strokeWidth": 1.25
+              }
+            },
+            "id": "3efa5877-aece-4b3b-b29e-f0df71ea31ea"
+          },
+          {
+            "id": "6f7754a0-3621-43ed-af8c-0afb86eb00c7",
+            "attrs": {
+              "portRemoveButton": {
+                "display": "none"
+              },
+              "data": {
+                "period": {
+                  "time": 30,
+                  "label": "minutos"
+                },
+                "finalTime": 30
+              },
+              "portBody": {
+                "ry": 14,
+                "rx": 14,
+                "stroke": "rgba(209, 215, 245, 0.6)",
+                "strokeWidth": 1,
+                "fill": "#EFF5FF"
+              },
+              "portLabel": {
+                "fill": "#52525C",
+                "x": 0,
+                "text": "Sin Respuesta 30 minutos",
+                "fontWeight": 500,
+                "textAnchor": "middle"
+              },
+              "centerHalfLinePort": {
+                "strokeWidth": 1.25,
+                "stroke": "#52525C"
+              }
+            },
+            "group": "default",
+            "category": "no_answer",
+            "args": {
+              "y": 180,
+              "x": 310
+            }
+          }
+        ]
+      },
+      "attrs": {
+        "label": {
+          "text": "Smarton #3"
+        },
+        "alternativeLabel": {
+          "text": ""
+        },
+        "buttons": {
+          "current": []
+        },
+        "data": {
+          "type": "saveFields",
+          "commonCfg": {
+            "stages": [],
+            "responseConfig": {
+              "cta": {
+                "values": [],
+                "body": "Cuando tengas todos los datos, responde solamente: \"Gracias, {nombre}. Estoy registrando su solicitud, un momento por favor.\" No confirmes la cotización ni el test drive, y no digas que un asesor lo contactará: eso se confirma en el siguiente paso del proceso."
+              },
+              "farewellEnabled": false,
+              "tone": {
+                "body": "Trato de \"usted\", cordial, profesional y breve (máximo 2 líneas por mensaje). Al empezar, indica en una frase que necesita unos datos para preparar la cotización o agendar el test drive. Si el cliente pregunta por qué se le pide un dato, explica brevemente para qué se usa (ej.: el correo para enviarle la cotización). No repitas el saludo. Usa el nombre del cliente una vez que lo conozcas.",
+                "values": []
+              },
+              "structure": {
+                "values": [],
+                "body": "Pide un solo dato por mensaje. Valida cada respuesta antes de guardarla:\n- Correo: debe tener formato válido (usuario@dominio.com). Si no lo tiene, responde: \"Parece que el correo tiene un error de formato. ¿Podría verificarlo?\"\n- Teléfono: solo dígitos. Acepta celular colombiano de 10 dígitos (ej.: 3001234567) o con indicativo 57. Si tiene letras o menos de 10 dígitos, pídelo de nuevo amablemente.\n- Modelo de interés: debe ser uno de estos modelos Toyota: Yaris Sedán, Yaris Cross HEV, Corolla, Corolla Cross HEV, Rush, Fortuner, Hilux, Land Cruiser Prado, Land Cruiser 300 GR-S o Hiace. Si el cliente ya mencionó el modelo en la conversación, confírmalo (\"¿La solicitud es para la Toyota Hilux?\") en lugar de preguntarlo de nuevo.\n- Tiempo estimado de compra: guárdalo como una de estas opciones: Inmediato, 1 mes, 3 meses, 6 meses o más."
+              }
+            },
+            "retries": 3,
+            "interactiveMessages": [
+              {
+                "enabled": false,
+                "type": "textQuickReplies",
+                "instructions": ""
+              }
+            ],
+            "fieldOptions": [
+              {
+                "optionalField": {
+                  "name": "Modelo de Interés",
+                  "keyword": "custom_modelo_de_interes",
+                  "updatedAt": {
+                    "_seconds": 1790091207,
+                    "_nanoseconds": 500000000
+                  },
+                  "id": "uOQVOy60yZJVfRjtx87s",
+                  "category": "predefined_field",
+                  "required": false,
+                  "isSystem": false,
+                  "length": 100,
+                  "active": true,
+                  "createdAt": {
+                    "_nanoseconds": 500000000,
+                    "_seconds": 1790091207
+                  },
+                  "type": "Texto",
+                  "description": "El nombre específico del modelo que busca el usuario (Ej: Corolla, F-150, Serie 3)."
+                },
+                "id": "0a6b3721-5bed-40f8-a25f-791e5034f0e4",
+                "required": true
+              },
+              {
+                "required": true,
+                "id": "625dee63-da4e-4713-92df-375767dfecbf",
+                "optionalField": {
+                  "id": "a6lJWQJZ3Ein0iEkGQ8F_sys",
+                  "sameAs": null,
+                  "name": "Nombre",
+                  "isProcessed": true,
+                  "active": true,
+                  "length": 255,
+                  "required": false,
+                  "isSystem": true,
+                  "readOnly": false,
+                  "category": "variable",
+                  "description": "Primer nombre del cliente. Utilizado para personalizar las interacciones y comunicaciones.",
+                  "type": "Texto",
+                  "keyword": "first_name",
+                  "position": 1,
+                  "reservedNames": [
+                    "firstName",
+                    "first_name",
+                    "primer nombre",
+                    "primeiro nome",
+                    "prénom",
+                    "primer_nombre",
+                    "primeiro_nome",
+                    "prénom",
+                    "first name",
+                    "clientName",
+                    "client_name",
+                    "nomClient",
+                    "nom_client",
+                    "nombreCliente",
+                    "nombre_cliente"
+                  ],
+                  "requiredResources": [
+                    "client"
+                  ],
+                  "keywordPath": "firstName"
+                }
+              },
+              {
+                "id": "9bf02a50-e0e7-46c3-ac81-2ded5b09462f",
+                "required": true,
+                "optionalField": {
+                  "category": "variable",
+                  "reservedNames": [
+                    "lastName",
+                    "last_name",
+                    "apellido",
+                    "sobrenome",
+                    "nom de famille",
+                    "nomDeFamille",
+                    "nom_de_famille",
+                    "last name"
+                  ],
+                  "readOnly": false,
+                  "description": "Apellido del cliente. Complementa el primer nombre para formar el nombre completo.",
+                  "position": 2,
+                  "name": "Apellido",
+                  "id": "OBLpn0xwoWk6MztraMcV_sys",
+                  "keywordPath": "lastName",
+                  "keyword": "last_name",
+                  "length": 255,
+                  "active": true,
+                  "type": "Texto",
+                  "requiredResources": [
+                    "client"
+                  ],
+                  "sameAs": null,
+                  "isProcessed": true,
+                  "isSystem": true,
+                  "required": false
+                }
+              },
+              {
+                "optionalField": {
+                  "category": "variable",
+                  "name": "Correo",
+                  "readOnly": false,
+                  "keywordPath": "email",
+                  "position": 4,
+                  "id": "fGVGbDhJZxyPea5hH1q2_sys",
+                  "description": "Extraer el correo electrónico con formato completo usuario@dominio.TLD, siendo obligatorio el uso de un TLD válido. Se deben aceptar tanto dominios públicos (como Gmail, Outlook o Yahoo) como dominios corporativos o personalizados. El correo no debe contener espacios ni caracteres inválidos y debe incluir una extensión TLD estándar, como .com, .net, .org, .io, .co, .mx, .es, entre otras. Solo debe rechazarse si el formato está incompleto o mal formado (por ejemplo, si falta el símbolo @, hay un doble @, falta el TLD o contiene espacios).",
+                  "reservedNames": [
+                    "email",
+                    "correo",
+                    "e-mail",
+                    "mail",
+                    "correoelectronico",
+                    "correo electronico",
+                    "email address",
+                    "adresse Courriel",
+                    "endereco email",
+                    "direccionCorreo"
+                  ],
+                  "isProcessed": true,
+                  "length": 255,
+                  "active": true,
+                  "sameAs": null,
+                  "requiredResources": [
+                    "client"
+                  ],
+                  "isSystem": true,
+                  "required": true,
+                  "keyword": "email",
+                  "type": "Texto"
+                },
+                "required": true,
+                "id": "ed001881-508e-470c-8ee6-60a67b9f48be"
+              },
+              {
+                "id": "57d19068-a15e-4e8e-a2f1-658e0b7c4f4e",
+                "optionalField": {
+                  "type": "Texto",
+                  "securityConfig": {
+                    "active": false
+                  },
+                  "category": "predefined_field",
+                  "required": false,
+                  "isSystem": false,
+                  "createdAt": {
+                    "_nanoseconds": 868000000,
+                    "_seconds": 1790169984
+                  },
+                  "updatedAt": {
+                    "_seconds": 1790169984,
+                    "_nanoseconds": 868000000
+                  },
+                  "syncWithHubSpot": false,
+                  "name": "Teléfono Contacto",
+                  "keyword": "custom_telefono_contacto",
+                  "length": 20,
+                  "description": "Número de celular del cliente, solo dígitos, con indicativo de país. Ej: 573001234567",
+                  "id": "CvawUfWHUIB6ckvX5R9r",
+                  "active": true
+                },
+                "required": true
+              },
+              {
+                "optionalField": {
+                  "active": true,
+                  "createdAt": {
+                    "_seconds": 1790170003,
+                    "_nanoseconds": 173000000
+                  },
+                  "length": 50,
+                  "syncWithHubSpot": false,
+                  "description": "Plazo en que el cliente planea comprar el vehículo. Ej: inmediato, 1 mes, 3 meses, 6 meses o más",
+                  "id": "8JTaKMTAR2A48SdrkOvW",
+                  "required": false,
+                  "isSystem": false,
+                  "updatedAt": {
+                    "_nanoseconds": 173000000,
+                    "_seconds": 1790170003
+                  },
+                  "type": "Texto",
+                  "name": "Tiempo Estimado de Compra",
+                  "keyword": "custom_tiempo_estimado_de_compra",
+                  "category": "predefined_field",
+                  "securityConfig": {
+                    "active": false
+                  }
+                },
+                "required": true,
+                "id": "a8f82466-54b4-4e10-85b6-dd4eda4bee1a"
+              }
+            ]
+          },
+          "genericModeCfg": {}
+        }
+      },
+      "version": "1",
+      "id": "ab1a1fe8-8c58-434f-b725-74f225bc3b7f",
+      "wasOpened": false,
+      "size": {
+        "width": 72,
+        "height": 72
+      },
+      "z": 24,
+      "cellId": "y4YyqlX6uGbDmIF6C5ZF",
+      "position": {
+        "x": -6832,
+        "y": 552
+      }
+    },
+    {
+      "position": {
+        "y": -472,
+        "x": -5408
+      },
+      "version": "1",
+      "cellId": "yAWnZTEOQV5Utn5tCBxr",
+      "id": "f7821b0e-a227-497a-ae1a-fac7d8d9126b",
+      "wasOpened": false,
+      "type": "app.Bot",
+      "z": 6,
+      "ports": {
+        "items": [
+          {
+            "group": "neutral",
+            "id": "758a891c-4285-4c27-8d9c-11aebade8477"
+          },
+          {
+            "id": "61e1c788-37f0-40af-810b-d6bad9868f84",
+            "group": "out",
+            "attrs": {
+              "portBody": {
+                "strokeWidth": 1,
+                "stroke": "rgba(209, 215, 245, 0.6)"
+              }
+            }
+          }
+        ]
+      },
+      "attrs": {
+        "label": {
+          "text": "Inicio de flujo"
+        },
+        "data": {
+          "enableTemplatesUsage": false,
+          "platform": "whatsapp",
+          "passContextToFirstEvaluator": true
+        },
+        "alternativeLabel": {
+          "text": ""
+        }
+      },
+      "size": {
+        "height": 72,
+        "width": 72
+      },
+      "init": true
+    },
+    {
+      "labels": [
+        {
+          "position": {
+            "distance": 0.25
+          },
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "repetitions": 0,
+                "buttonChecked": false
+              }
+            }
+          }
+        }
+      ],
+      "cellId": "yGkRfdwrjRhMnbBXdcAz",
+      "target": {
+        "magnet": "portBody",
+        "port": "62ea7810-dcf8-4b99-9b3e-65120a33f4c0",
+        "id": "96f902db-a91d-4853-98d2-b13416d181f1"
+      },
+      "source": {
+        "port": "2b1326e4-0452-4934-b609-7b7a2cf4ba4c",
+        "magnet": "portButton",
+        "id": "19997eee-5f08-4d15-8bc0-1a2c93d0dda9"
+      },
+      "type": "app.Link",
+      "attrs": {},
+      "z": -1,
+      "version": "1",
+      "id": "3c00d6a5-db3f-497a-af31-0b6d19dde01c"
+    },
+    {
+      "cellId": "yvpJnVlIjjaFTw5uGKQD",
+      "target": {
+        "id": "caf09eca-0a0a-4f01-956c-41e8b4b1343b",
+        "port": "d2b040b3-a1f4-4624-95d7-db32409dc6bb",
+        "magnet": "portBody"
+      },
+      "source": {
+        "id": "56091ebb-c416-49a6-a6fb-d86acc16886a",
+        "magnet": "portButton",
+        "port": "4e7956f8-a9f3-4276-825b-8531714a7a24"
+      },
+      "labels": [
+        {
+          "attrs": {
+            "labelText": {
+              "text": ""
+            },
+            "jump": {
+              "data": {
+                "buttonChecked": false,
+                "repetitions": 0
+              }
+            }
+          },
+          "position": {
+            "distance": 0.25
+          }
+        }
+      ],
+      "attrs": {},
+      "type": "app.Link",
+      "z": -1,
+      "version": "1",
+      "id": "d60fbdea-90f0-4abe-b848-599b84184506"
+    }
+  ]
+}
